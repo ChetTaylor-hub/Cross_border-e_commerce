@@ -98,7 +98,17 @@ class OzonApi():
                 if response.json()["result"] == "success":
                     send_ret = True
 
-    def ReminderRegisterPassport(self):
+    def ReminderDelivered(self, text = "Your goods have been delivered!"):
+        ChatContent = {
+            "substatus": "Delivered",
+            "text": text
+        }
+
+        response = self.ShipmentList()
+        chat_ids = self.ChatBuyersStart(response, ChatContent)
+        self.ChatBuyersSend(chat_ids, ChatContent["text"])
+
+    def ReminderRegisterPassport(self, text):
         ChatContent = {
             "substatus": "posting_awaiting_passport_data",
             "text": "Your passport information has not been collected yet, please fill it out as soon as possible"
@@ -107,6 +117,7 @@ class OzonApi():
         response = self.ShipmentList()
         chat_ids = self.ChatBuyersStart(response, ChatContent)
         self.ChatBuyersSend(chat_ids, ChatContent["text"])
+
 
 
 
