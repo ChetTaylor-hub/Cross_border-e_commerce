@@ -9,7 +9,7 @@ from django.core.cache import cache
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate
-from ozonapi.control import Control
+from Autoresponder.ozonapi.control import Control
 
 control = Control()
 
@@ -67,7 +67,9 @@ def base(request):
 
 from django.http import JsonResponse
 
-def main(request):
+
+
+def main_1(request):
     # 这里可以编写处理自动回复设置的逻辑，包括保存设置、启动和停止自动回复等操作
     if request.method == 'POST':
         # 处理保存设置的逻辑
@@ -110,6 +112,50 @@ def main(request):
     else:
         # 处理其他请求，例如未知的请求类型
         return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
+
+def main(request):
+    return render(request, 'main.html')
+
+def save_settings(request):
+    if request.method == 'POST':
+        # 处理保存设置的逻辑
+        # 获取 POST 请求中的数据
+        goods_delivered_interval = request.POST.get('goods_delivered_interval')
+        goods_delivered_message = request.POST.get('goods_delivered_message')
+        passport_registration_interval = request.POST.get('passport_registration_interval')
+        passport_registration_message = request.POST.get('passport_registration_message')
+
+        # 在这里调用你的 API，将设置保存到数据库或其他存储介质中
+        # 这里只是一个示例，实际上需要根据你的需求调用相应的 API
+        # 这里假设有一个名为 'save_auto_reply_settings' 的函数来保存设置
+        control.save_auto_reply_settings(goods_delivered_interval, goods_delivered_message,
+                                         passport_registration_interval, passport_registration_message)
+        return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'error'})
+
+def start_auto_reply(request):
+    if request.method == 'PUT':
+        # 开启自动回复逻辑
+        # 这里假设有一个名为 'start_auto_reply' 的函数来启动自动回复
+        control.start_auto_reply()
+        return JsonResponse({'status': 'success', 'message': 'Auto reply started'})
+
+def stop_auto_reply(request):
+    if request.method == 'DELETE':
+        # 停止自动回复逻辑
+        # 这里假设有一个名为 'stop_auto_reply' 的函数来停止自动回复
+        control.stop_auto_reply()
+        return JsonResponse({'status': 'success', 'message': 'Auto reply stopped'})
+
+def get_saved_settings(request):
+    # 处理获取设置的逻辑
+    # 在这里调用你的 API，获取已保存的设置
+    # 这里只是一个示例，实际上需要根据你的需求调用相应的 API
+    # 这里假设有一个名为 'get_auto_reply_settings' 的函数来获取设置
+    settings = control.get_auto_reply_settings()
+
+    # 返回获取的设置数据，用于前端显示
+    return JsonResponse(settings)
 
 
 

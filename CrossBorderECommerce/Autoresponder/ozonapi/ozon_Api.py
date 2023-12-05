@@ -119,5 +119,26 @@ class OzonApi():
         self.ChatBuyersSend(chat_ids, ChatContent["text"])
 
 
+    def CompetitorsList(self):
+        map = {
+            "url": "https://api-seller.ozon.ru/v1/pricing-strategy/competitors/list",
+            "application": {
+                "page": 100,
+                "limit": 30
+            }
+        }
+
+        url = map["url"]
+        application = map["application"]
+
+        response = requests.post(url, headers=self.headers, json=application)
+
+        print(response.json())
+        # print(response.json()["result"]["status"])
+        for i in response.json()["competitor"]:
+            print(i["name"])
+        return response
+
+
 
 

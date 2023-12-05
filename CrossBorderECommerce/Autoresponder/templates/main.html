@@ -81,6 +81,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
@@ -102,10 +103,12 @@
             <input type="text" id="passport_registration_message" name="passport_registration_message" placeholder="Enter custom message">
         </div>
 
-        <button onclick="saveSettings()">Save Settings</button>
+
 
         <!-- Start and Stop buttons -->
         <div class="button-group">
+            {% comment %} <button id="saveSettings">Save Settings</button> {% endcomment %}
+            <button onclick="saveSettings()">Save Settings</button>
             <button onclick="startAutoReply()">Start Auto Reply</button>
             <button onclick="stopAutoReply()">Stop Auto Reply</button>
         </div>
@@ -114,11 +117,45 @@
         <div id="savedSettings"></div>
     </div>
 
+
     <script>
         // 页面加载时获取并显示保存的设置
     window.onload = function() {
         getSavedSettings();
     };
+
+    {% comment %} document.getElementById('saveSettings').addEventListener('click', function() {
+         // 获取用户输入的设置数据
+         const goodsDeliveredInterval = document.getElementById('goods_delivered_interval').value;
+         const goodsDeliveredMessage = document.getElementById('goods_delivered_message').value;
+         const passportRegistrationInterval = document.getElementById('passport_registration_interval').value;
+         const passportRegistrationMessage = document.getElementById('passport_registration_message').value;
+ 
+         // 发送 POST 请求到后端保存设置
+         fetch('/auto_reply_settings/', {
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/json',
+                 'X-CSRFToken': getCookie('csrftoken')  // 获取 CSRF token，确保安全性
+             },
+             body: JSON.stringify({
+                 goods_delivered_interval: goodsDeliveredInterval,
+                 goods_delivered_message: goodsDeliveredMessage,
+                 passport_registration_interval: passportRegistrationInterval,
+                 passport_registration_message: passportRegistrationMessage,
+             })
+         })
+         .then(response => response.json())
+         .then(data => {
+             if (data.status === 'success') {
+                 alert('Settings saved successfully!');
+             } else {    
+                 alert('Error saving settings.');
+             }
+         });
+    }); {% endcomment %}
+
+   
 
     function saveSettings() {
         // 获取用户输入的设置数据
@@ -145,10 +182,11 @@
         .then(data => {
             if (data.status === 'success') {
                 alert('Settings saved successfully!');
-            } else {
+            } else {    
                 alert('Error saving settings.');
             }
         });
+    }
 
         
         function startAutoReply() {
@@ -189,35 +227,32 @@
             });
         }
 
+
+        function getSavedSettings() {
+            // 发送 GET 请求获取已保存的设置
+            fetch('/get_saved_settings/')
+            .then(response => response.json())
+            .then(data => {
+                // 显示保存的设置信息
+                const savedSettingsDiv = document.getElementById('savedSettings');
+                savedSettingsDiv.innerHTML = '<h3>Saved Settings</h3>';
+                savedSettingsDiv.innerHTML += `<p>Goods Delivered Reminder: ${data.goods_delivered_message}</p>`;
+                savedSettingsDiv.innerHTML += `<p>Passport Registration Reminder: ${data.passport_registration_message}</p>`;
+                savedSettingsDiv.innerHTML += `<p>goods_delivered_interval: ${data.goods_delivered_interval} minutes</p>`;
+                savedSettingsDiv.innerHTML += `<p>passport_registration_interval: ${data.passport_registration_interval} minutes</p>`;
+            });
+        }
+
+         // 获取 CSRF token 的函数（可选）
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
         // 刷新显示保存的设置
         getSavedSettings();
-    }
 
-        // 获取并显示保存的设置
-        function getSavedSettings() {
-            // 模拟从服务器获取已保存的设置
-            const savedSettings = {
-                goods_delivered_interval: 10,
-                goods_delivered_message: 'Your goods have been delivered!',
-                passport_registration_interval: 15,
-                passport_registration_message: 'Passport registration reminder.',
-            };
-
-            // 显示保存的设置
-            document.getElementById('goods_delivered_interval').value = savedSettings.goods_delivered_interval;
-            document.getElementById('goods_delivered_message').value = savedSettings.goods_delivered_message;
-            document.getElementById('passport_registration_interval').value = savedSettings.passport_registration_interval;
-            document.getElementById('passport_registration_message').value = savedSettings.passport_registration_message;
-
-            // 在页面上显示保存的设置
-            const savedSettingsDiv = document.getElementById('savedSettings');
-            savedSettingsDiv.innerHTML = `<h3>Saved Settings:</h3>
-                <p>Goods Delivered Interval: ${savedSettings.goods_delivered_interval} minutes</p>
-                <p>Goods Delivered Message: ${savedSettings.goods_delivered_message}</p>
-                <p>Passport Registration Interval: ${savedSettings.passport_registration_interval} minutes</p>
-                <p>Passport Registration Message: ${savedSettings.passport_registration_message}</p>`;
-        }
     </script>
-
 </body>
+
 </html>
