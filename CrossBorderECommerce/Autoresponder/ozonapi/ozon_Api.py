@@ -123,8 +123,8 @@ class OzonApi():
         map = {
             "url": "https://api-seller.ozon.ru/v1/pricing-strategy/competitors/list",
             "application": {
-                "page": 100,
-                "limit": 30
+                "page": 1,
+                "limit": 49
             }
         }
 
