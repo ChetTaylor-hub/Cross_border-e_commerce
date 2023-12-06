@@ -7,6 +7,8 @@ def get_data(url):
     }
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, 'html.parser')
+    data = soup.seller
+    print(f"data = {data}")
     
     # 在这里添加代码来提取你需要的数据
     # 例如：soup.find_all('div', class_='your_class')
