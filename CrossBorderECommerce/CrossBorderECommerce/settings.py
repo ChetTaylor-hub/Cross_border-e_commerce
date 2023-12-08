@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+ASGI_APPLICATION  = "CrossBorderECommerce.asgi.application"
 
 # Application definition
 

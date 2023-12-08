@@ -1,5 +1,5 @@
 import time
-from ozon_Api import OzonApi
+from .ozon_Api import OzonApi
 
 headers = {
     "Client-Id": "1499102",
@@ -10,10 +10,11 @@ headers = {
 class Control():
     def __init__(self) -> None:
         self.goods_delivered_interval = 15
-        self.goods_delivered_message = "Your goods have been delivered!"
+        self.goods_delivered_message = "Your goods have been delivered!-------------------------"
         self.passport_registration_interval = 15
         self.passport_registration_message = "Passport registration reminder."
-        self.start = False
+        self.start = True
+        self.flag = False
 
         headers = {
             "Client-Id": "1499102",
@@ -28,9 +29,9 @@ class Control():
                                  passport_registration_interval, 
                                  passport_registration_message):
         
-        self.goods_delivered_interval = goods_delivered_interval
+        self.goods_delivered_interval = float(goods_delivered_interval)
         self.goods_delivered_message = goods_delivered_message
-        self.passport_registration_interval = passport_registration_interval
+        self.passport_registration_interval = float(passport_registration_interval)
         self.passport_registration_message = passport_registration_message
         
     def get_auto_reply_settings(self):
@@ -47,17 +48,16 @@ class Control():
     def stop_auto_reply(self):
         self.start = False
 
-    def ReminderRegisterPassportRun(self, start):
-
+    def ReminderRegisterPassportRun(self):
         while self.start:
             self.ozonapi.ReminderRegisterPassport(self.passport_registration_message)
+            print("ReminderRegisterPassportRun")
             time.sleep(self.passport_registration_interval * 60)
 
-    def ReminderDelivered(self, start):
-        
-
-        while start:
+    def ReminderDelivered(self):
+        while self.start:
             self.ozonapi.ReminderDelivered(self.goods_delivered_message)
+            print("ReminderDelivered")
             time.sleep(self.goods_delivered_interval * 60)
 
 

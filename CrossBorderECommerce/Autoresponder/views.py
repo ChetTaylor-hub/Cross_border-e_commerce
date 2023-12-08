@@ -1,3 +1,5 @@
+import json
+import asyncio
 from django.shortcuts import render
 
 # Create your views here.
@@ -12,6 +14,8 @@ from django.contrib.auth import login, authenticate
 from Autoresponder.ozonapi.control import Control
 
 control = Control()
+start_flag = False
+
 
 def register(request):
     if request.method == 'POST':
@@ -119,11 +123,13 @@ def main(request):
 def save_settings(request):
     if request.method == 'POST':
         # 处理保存设置的逻辑
-        # 获取 POST 请求中的数据
-        goods_delivered_interval = request.POST.get('goods_delivered_interval')
-        goods_delivered_message = request.POST.get('goods_delivered_message')
-        passport_registration_interval = request.POST.get('passport_registration_interval')
-        passport_registration_message = request.POST.get('passport_registration_message')
+        data = json.loads(request.body.decode('utf-8'))
+
+        # 从原始数据中提取所需的键值对
+        goods_delivered_interval = data.get('goods_delivered_interval')
+        goods_delivered_message = data.get('goods_delivered_message')
+        passport_registration_interval = data.get('passport_registration_interval')
+        passport_registration_message = data.get('passport_registration_message')
 
         # 在这里调用你的 API，将设置保存到数据库或其他存储介质中
         # 这里只是一个示例，实际上需要根据你的需求调用相应的 API
@@ -133,11 +139,14 @@ def save_settings(request):
         return JsonResponse({'status': 'success'})
     return JsonResponse({'status': 'error'})
 
-def start_auto_reply(request):
+
+async def start_auto_reply(request):
     if request.method == 'PUT':
+        control.start_auto_reply()
+        control.ReminderDelivered()
         # 开启自动回复逻辑
         # 这里假设有一个名为 'start_auto_reply' 的函数来启动自动回复
-        control.start_auto_reply()
+
         return JsonResponse({'status': 'success', 'message': 'Auto reply started'})
 
 def stop_auto_reply(request):
