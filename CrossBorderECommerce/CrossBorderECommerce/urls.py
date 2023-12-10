@@ -14,19 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from Autoresponder import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('register/', views.register, name='register'),
-    path('user_login/', views.user_login, name='user_login'),
-    path('settle_payment/', views.settle_payment, name='settle_payment'),
-    path('index/', views.index, name='index'),
-    path('base/', views.base, name='base'),
-    path('main/', views.main, name='main'),
-    path('auto_reply_settings/', views.save_settings, name='save_settings'),
-    path('start_auto_reply/', views.start_auto_reply, name='start_auto_reply'),
-    path('stop_auto_reply/', views.stop_auto_reply, name='stop_auto_reply'),
-    path('get_saved_settings/', views.get_saved_settings, name='get_saved_settings'),
+    path("Autoresponder/", include("Autoresponder.urls")),
+    # path('register/', views.register, name='register'),
+    # path('user_login/', views.user_login, name='user_login'),
+    # path('settle_payment/', views.settle_payment, name='settle_payment'),
+    # path('index/', views.index, name='index'),
+    # path('base/', views.base, name='base'),
+    # path('main/', views.main, name='main'),
+    # path('auto_reply_settings/', views.save_settings, name='save_settings'),
+    # path('start_auto_reply/', views.start_auto_reply, name='start_auto_reply'),
+    # path('stop_auto_reply/', views.stop_auto_reply, name='stop_auto_reply'),
+    # path('get_saved_settings/', views.get_saved_settings, name='get_saved_settings'),
+    # path('async_view/', views.async_view, name='async_view'),
 ]

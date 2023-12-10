@@ -25,7 +25,7 @@ class OzonApi():
                 # ],
                 "since": "2023-11-03T11:47:39.878Z",
                 # "status": "awaiting_registration",
-                "to": "2023-12-04T11:47:39.878Z",
+                "to": "2023-12-30T11:47:39.878Z",
                 # "warehouse_id": [
                 # "string"
                 # ]
@@ -111,7 +111,7 @@ class OzonApi():
     def ReminderRegisterPassport(self, text):
         ChatContent = {
             "substatus": "posting_awaiting_passport_data",
-            "text": "Your passport information has not been collected yet, please fill it out as soon as possible"
+            "text": text
         }
 
         response = self.ShipmentList()

@@ -29,6 +29,27 @@ ALLOWED_HOSTS = ['*']
 
 ASGI_APPLICATION  = "CrossBorderECommerce.asgi.application"
 
+
+# # 域名资源共享
+# INSTALLED_APPS = [
+#     # ...
+#     'corsheaders',
+#     # ...
+# ]
+
+# MIDDLEWARE = [
+#     # ...
+#     'corsheaders.middleware.CorsMiddleware',
+#     # ...
+# ]
+
+# CORS_ALLOWED_ORIGINS = [
+#     "http://127.0.0.1:8000",  # 本地开发环境
+#     "https://4b5p330895.zicp.fun:443",  # 公共域名
+# ]
+
+
+
 # Application definition
 
 INSTALLED_APPS = [

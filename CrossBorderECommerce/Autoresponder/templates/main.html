@@ -87,6 +87,13 @@
     <div class="container">
         <h2>Auto Reply Settings</h2>
 
+        <div class="form-group">
+            <label for="Client_Id">Ozon Client-Id:</label>
+            <input type="text" id="Client_Id" name="Client_Id" placeholder="Enter you ozon Client-Id">
+            <label for="Api_Key">Ozon Api-Key:</label>
+            <input type="text" id="Api_Key" name="Api_Key" placeholder="Enter ozon Api-Key">
+        </div>
+
         <!-- Auto Reply Module 1: Goods Delivered -->
         <div class="form-group">
             <label for="goods_delivered_interval">Goods Delivered Interval (minutes):</label>
@@ -107,10 +114,11 @@
 
         <!-- Start and Stop buttons -->
         <div class="button-group">
-            {% comment %} <button id="saveSettings">Save Settings</button> {% endcomment %}
+            {% csrf_token %}
             <button onclick="saveSettings()">Save Settings</button>
             <button onclick="startAutoReply()">Start Auto Reply</button>
             <button onclick="stopAutoReply()">Stop Auto Reply</button>
+            <button onclick="async_view()">Async Start Task</button>
         </div>
 
         <!-- Display saved settings -->
@@ -132,9 +140,11 @@
         const goodsDeliveredMessage = document.getElementById('goods_delivered_message').value;
         const passportRegistrationInterval = document.getElementById('passport_registration_interval').value;
         const passportRegistrationMessage = document.getElementById('passport_registration_message').value;
+        const Client_Id = document.getElementById('Client_Id').value;
+        const Api_Key = document.getElementById('Api_Key').value;
 
         // 发送 POST 请求到后端保存设置
-        fetch('/auto_reply_settings/', {
+        fetch('/Autoresponder/auto_reply_settings/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -145,6 +155,8 @@
                 goods_delivered_message: goodsDeliveredMessage,
                 passport_registration_interval: passportRegistrationInterval,
                 passport_registration_message: passportRegistrationMessage,
+                Client_Id: Client_Id,
+                Api_Key: Api_Key,
             })
         })
         .then(response => response.json())
@@ -152,11 +164,17 @@
             console.log(data);
             if (data.status === 'success') {
                 alert('Settings saved successfully!');
+            } else if (data.status === 'Api_Key_is_empty') {
+                alert('Error saving settings. Api_Key is required.');
+            } else if (data.status === 'Client_Id_is_empty') {
+                alert('Error saving settings. Client_Id is required.');
+            } else if (data.status === 'Api_Key_and_Client_Id_are_empty') {
+                alert('Error saving settings. Api_Key and Client_Id are required.');
             } else {    
                 alert('Error saving settings.');
             }
         });
-
+        
         getSavedSettings();
     }
 
@@ -164,7 +182,7 @@
         function startAutoReply() {
             saveSettings();
             // 发送 PUT 请求到后端开启自动回复
-            fetch('/start_auto_reply/', {
+            fetch('/Autoresponder/start_auto_reply/', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -184,7 +202,7 @@
 
         function stopAutoReply() {
             // 发送 DELETE 请求到后端停止自动回复
-            fetch('/stop_auto_reply/', {
+            fetch('/Autoresponder/stop_auto_reply/', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -195,7 +213,8 @@
             .then(data => {
                 if (data.status === 'success') {
                     alert('Auto reply stopped successfully!');
-                } else {
+                }
+                else {
                     alert('Error stopping auto reply.');
                 }
             });
@@ -204,17 +223,40 @@
 
         function getSavedSettings() {
             // 发送 GET 请求获取已保存的设置
-            fetch('/get_saved_settings/')
+            fetch('/Autoresponder/get_saved_settings/')
             .then(response => response.json())
             .then(data => {
                 // 显示保存的设置信息
                 const savedSettingsDiv = document.getElementById('savedSettings');
                 savedSettingsDiv.innerHTML = '<h3>Saved Settings</h3>';
+                savedSettingsDiv.innerHTML += `<p>Client_Id: ${data.Client_Id}</p>`;
+                savedSettingsDiv.innerHTML += `<p>Api_Key: ${data.Api_Key}</p>`;
                 savedSettingsDiv.innerHTML += `<p>Goods Delivered Reminder: ${data.goods_delivered_message}</p>`;
                 savedSettingsDiv.innerHTML += `<p>Passport Registration Reminder: ${data.passport_registration_message}</p>`;
-                savedSettingsDiv.innerHTML += `<p>goods_delivered_interval: ${data.goods_delivered_interval} minutes</p>`;
-                savedSettingsDiv.innerHTML += `<p>passport_registration_interval: ${data.passport_registration_interval} minutes</p>`;
+                savedSettingsDiv.innerHTML += `<p>Goods Delivered Interval: ${data.goods_delivered_interval} minutes</p>`;
+                savedSettingsDiv.innerHTML += `<p>Passport Registration Interval: ${data.passport_registration_interval} minutes</p>`;
             });
+        }
+
+
+        function async_view() {
+            // 发送 PUT 请求到后端开启自动回复
+            fetch('/Autoresponder/async_view/', {
+                method: 'START',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('reply task started successfully!');
+                } else {
+                    alert('Error starting task.');
+                }
+            });
+
         }
 
          // 获取 CSRF token 的函数（可选）
