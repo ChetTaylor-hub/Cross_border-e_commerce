@@ -1,1 +1,6 @@
 .vscode
+*.txt
+*.csv
+
+# Ignore all files in the build/ directory
+build/

@@ -30,6 +30,11 @@ ALLOWED_HOSTS = ['*']
 ASGI_APPLICATION  = "CrossBorderECommerce.asgi.application"
 
 
+# settings.py
+
+CSRF_TRUSTED_ORIGINS = ['https://4b5p330895.zicp.fun']
+
+
 # # 域名资源共享
 # INSTALLED_APPS = [
 #     # ...
