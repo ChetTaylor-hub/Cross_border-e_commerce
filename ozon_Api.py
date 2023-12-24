@@ -84,6 +84,8 @@ class OzonApi():
             # print(response.json())
 
         return chat_ids
+    
+  
 
     def ChatBuyersSend(self, chat_ids, text="no text"):
         url = "https://api-seller.ozon.ru/v1/chat/send/message"
@@ -146,8 +148,11 @@ class OzonApiForCommodityConversion(OzonApi):
         return response.json()["result"]["items"]
     
     def getTheProductWebsite(self, header):
-        productsInfo = []
-        productsWebsite = []
+        products = {
+            "website": [],
+            "info": []
+        }
+
         GoodsSale = self.ShipmentList()
         postings = self.SelectFromShipmentList(GoodsSale, substatus="posting_awaiting_passport_data")
 
@@ -162,10 +167,52 @@ class OzonApiForCommodityConversion(OzonApi):
             response = requests.post(self.url["productInformation"],
                                      headers=header,
                                      json=application)
-            productsWebsite.append(f"https://www.ozon.ru/product/{response.json()['result']['sku']}/")
+            products["website"].append(f"https://www.ozon.ru/product/{response.json()['result']['sku']}/")
+            products["info"].append(posting)
 
-        return productsWebsite
+
+        return products
     
+    def ChatBuyersStart(self, products):
+        chat_ids = []
+        url = "https://api-seller.ozon.ru/v1/chat/start"
+        
+        for info in products["info"]:
+            # 逐个创建聊天窗口，返回聊天窗口id号
+            application = {
+                "posting_number": info["posting_number"]
+            }
+
+            response = requests.post(url, headers=self.headers, json=application)
+
+            chat_ids.append(response.json()["result"]["chat_id"])
+            # print(response.json())
+
+        return chat_ids, products["website"]
+    
+    def ChatBuyersSend(self, chat_ids, websites, text="no text"):
+        url = "https://api-seller.ozon.ru/v1/chat/send/message"
+
+        for chat_id, website in zip(chat_ids, websites):
+            print(f"---------chat_id: {chat_id} 正在被发送---------")
+
+            send_ret = False
+
+            while send_ret == False: # 如果发送不成功，则一直发送
+                application = {
+                    "chat_id": chat_id,
+                    "text": f"{text}{website}"
+                }
+                response = requests.post(url, headers=self.headers, json=application)
+                # print(response.json())
+                if response.json()["result"] == "success":
+                    print(f"---------chat_id: {chat_id} 发送成功---------")
+                    send_ret = True
+
+    def run(self, text="no text"):
+        products = self.getTheProductWebsite(headers[1])
+        chat_ids, websites = self.ChatBuyersStart(products)
+        self.ChatBuyersSend(chat_ids, websites, text)
 
 url = "https://www.ozon.ru/product/1356525140/"
 
@@ -183,5 +230,7 @@ headers = [
 
 
 if __name__ == "__main__":
+    text = "Здравствуйте, уважаемый клиент, наш склад был разрушен во время недавнего землетрясения в Ганьсу, Китай.Поэтому мы не можем отправить вам товар.Пожалуйста, закажете товар в другом из наших магазинов, и мы предоставим вам скидку.Еще раз, я хотел бы выразить вам свои самые искренние извинения, ссылка приведена ниже："
+
     OzonApiForcopy = OzonApiForCommodityConversion(headers[0])
-    OzonApiForcopy.getTheProductWebsite(header=headers[1])
+    OzonApiForcopy.run(text)
