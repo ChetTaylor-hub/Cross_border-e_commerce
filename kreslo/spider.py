@@ -184,8 +184,9 @@ class SpiderShop:
             logger.info(cls.shop_name)
             if len(tmp_name) == len(cls.shop_name):
                 break
-
+            
+    def 
 
 if __name__ == '__main__':
-    url = "https://www.ozon.ru/product/kreslo-kachalka-hlo-50h30h90-sm-1315792293/"
+    url = "https://www.ozon.ru/product/1353884336/"
     SpiderShop.get_shop_info(url)

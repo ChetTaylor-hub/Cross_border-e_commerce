@@ -4,8 +4,10 @@ class OzonApi():
     def __init__(self, headers):
         self.headers = headers
 
+    def getheader(self):
+        return self.headers
 
-    def ShipmentList(self):
+    def ShipmentList(self, status=""):
         map = {
         "url": "https://api-seller.ozon.ru/v3/posting/fbs/list",
         "application": {
@@ -24,8 +26,8 @@ class OzonApi():
                 # "string"
                 # ],
                 "since": "2023-11-03T11:47:39.878Z",
-                # "status": "awaiting_registration",
-                "to": "2023-12-04T11:47:39.878Z",
+                "status": status,
+                "to": "2023-12-24T11:47:39.878Z",
                 # "warehouse_id": [
                 # "string"
                 # ]
@@ -46,19 +48,20 @@ class OzonApi():
 
         response = requests.post(url, headers=self.headers, json=application)
 
-        print(response.json())
+        # print(response.json())
         # print(response.json()["result"]["status"])
+        print(f"-------------total: {len(response.json()['result']['postings'])}-------------")
         for i in response.json()["result"]["postings"]:
-            print(i["status"])
+            print(f"order: {i['order_id']}, status: {i['status']}, substatus: {i['substatus']}")
         return response
     
-    def SelectFromShipmentList(Self, response, substatus):
+    def SelectFromShipmentList(Self, response, substatus=""):
         postings = []
         # 筛选订单
         for i in response.json()["result"]["postings"]:
             if i["substatus"] == substatus:
                 postings.append(i)
-            print(i["posting_number"])
+            # print(i["posting_number"])
         return postings
         
 
@@ -78,7 +81,7 @@ class OzonApi():
             response = requests.post(url, headers=self.headers, json=application)
 
             chat_ids.append(response.json()["result"]["chat_id"])
-            print(response.json())
+            # print(response.json())
 
         return chat_ids
 
@@ -86,6 +89,8 @@ class OzonApi():
         url = "https://api-seller.ozon.ru/v1/chat/send/message"
 
         for chat_id in chat_ids:
+            print(f"---------chat_id: {chat_id}正在被发送---------")
+
             send_ret = False
 
             while send_ret == False: # 如果发送不成功，则一直发送
@@ -94,7 +99,7 @@ class OzonApi():
                     "text": text
                 }
                 response = requests.post(url, headers=self.headers, json=application)
-                print(response.json())
+                # print(response.json())
                 if response.json()["result"] == "success":
                     send_ret = True
 
@@ -108,5 +113,76 @@ class OzonApi():
         chat_ids = self.ChatBuyersStart(response, ChatContent)
         self.ChatBuyersSend(chat_ids, ChatContent["text"])
 
+class OzonApiForCommodityConversion(OzonApi):
+    def __init__(self, header) -> None:
+        super(OzonApiForCommodityConversion, self).__init__(header)
+        self.url = {
+            "productList": "https://api-seller.ozon.ru/v2/product/list",
+            "productInformation": "https://api-seller.ozon.ru/v2/product/info",
+            "productDetails": "https://api-seller.ozon.ru/v1/product/info/description"
+        }
+
+    def getTheProductList(self, header):
+        products = []
+        application = {
+            "filter": {
+                # "offer_id": [
+                #     "136748"
+                # ],
+                # "product_id": [
+                #     "223681945"
+                # ],
+                "visibility": "ALL"
+            },
+            "last_id": "",
+            "limit": 100
+        }
+
+        response = requests.post(self.url["productList"],
+                                 headers=header,
+                                 json=application)
 
 
+        return response.json()["result"]["items"]
+    
+    def getTheProductWebsite(self, header):
+        productsInfo = []
+        productsWebsite = []
+        GoodsSale = self.ShipmentList()
+        postings = self.SelectFromShipmentList(GoodsSale, substatus="posting_awaiting_passport_data")
+        products = self.getTheProductList(header)
+
+
+
+        for posting in postings:
+            application = {
+                "offer_id": posting["products"][0]["offer_id"],
+                # "product_id": 137208233,
+                # "sku": 0
+            }
+            response = requests.post(self.url["productInformation"],
+                                     headers=header,
+                                     json=application)
+            productsWebsite.append(f"https://www.ozon.ru/product/{posting['products'][0]['sku']}/")
+
+        return productsWebsite
+    
+
+url = "https://www.ozon.ru/product/1356051205/"
+
+
+headers = [
+    {
+        "Client-Id": "1499102",
+        "Api-Key": "d8c89da0-9caa-4d70-b034-54a2f21c94a2",
+    },
+    {
+        "Client-Id": "1590307",
+        "Api-Key": "6e3bcfea-5b59-4997-a3ad-9c24a5611ccd",
+    },
+]
+
+
+if __name__ == "__main__":
+    OzonApiForcopy = OzonApiForCommodityConversion(headers[1])
+    OzonApiForcopy.getTheProductWebsite(header=headers[1])
