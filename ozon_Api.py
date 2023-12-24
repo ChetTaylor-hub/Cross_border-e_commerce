@@ -150,7 +150,6 @@ class OzonApiForCommodityConversion(OzonApi):
         productsWebsite = []
         GoodsSale = self.ShipmentList()
         postings = self.SelectFromShipmentList(GoodsSale, substatus="posting_awaiting_passport_data")
-        products = self.getTheProductList(header)
 
 
 
@@ -163,12 +162,12 @@ class OzonApiForCommodityConversion(OzonApi):
             response = requests.post(self.url["productInformation"],
                                      headers=header,
                                      json=application)
-            productsWebsite.append(f"https://www.ozon.ru/product/{posting['products'][0]['sku']}/")
+            productsWebsite.append(f"https://www.ozon.ru/product/{response.json()['result']['sku']}/")
 
         return productsWebsite
     
 
-url = "https://www.ozon.ru/product/1356051205/"
+url = "https://www.ozon.ru/product/1356525140/"
 
 
 headers = [
@@ -184,5 +183,5 @@ headers = [
 
 
 if __name__ == "__main__":
-    OzonApiForcopy = OzonApiForCommodityConversion(headers[1])
+    OzonApiForcopy = OzonApiForCommodityConversion(headers[0])
     OzonApiForcopy.getTheProductWebsite(header=headers[1])
