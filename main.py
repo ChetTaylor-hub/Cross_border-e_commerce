@@ -1,5 +1,10 @@
 import time
-from ozon_Api import OzonApi
+from ozon_Api import OzonApi, OzonApiForCommodityConversion
+
+bossheader = {
+    "Client-Id": "1590307",
+    "Api-Key": "6e3bcfea-5b59-4997-a3ad-9c24a5611ccd",
+}
 
 headers = [
     {
@@ -20,62 +25,25 @@ headers = [
     }
 ]
 
-delay_time = 10 # 延迟，单位是分钟
+delay_time = 0.5 # 延迟，单位是分钟
 
-
-# response = SELLER_POSTINGS()
-# report_info(response.json()["result"]["code"])
-
-map = {
-    "url": "https://api-seller.ozon.ru/v3/posting/fbs/get",
-    "application": {
-        "posting_number": "0118535500-0518-1",
-        "with": {
-        "analytics_data": False,
-        "barcodes": False,
-        "financial_data": False,
-        "product_exemplars": False,
-        "translit": False
-        }
-    }
-}
-
-map2 = {
-    "url": "https://api-seller.ozon.ru/v3/posting/fbs/unfulfilled/list",
-    "application": {
-        "dir": "ASC",
-        "filter": {
-            "cutoff_from": "2023-08-24T14:15:22Z",
-            "cutoff_to": "2023-12-31T14:15:22Z",
-            "delivery_method_id": [],
-            # "provider_id": [],
-            # "status": "awaiting_packaging",
-            # "warehouse_id": []
-        },
-        "limit": 100,
-        "offset": 0,
-        "with": {
-            "analytics_data": True,
-            "barcodes": True,
-            "financial_data": True,
-            "translit": True
-        } 
-    }
-}
 
 
 if __name__ == "__main__":
 
     delay_time *= 60 # 转换为分钟
-    ozonapis = []
+    ozonApis = []
+    ozonApiForCommodityConversions = []
     for header in headers:
-        ozonapis.append(OzonApi(header))
+        ozonApis.append(OzonApi(header))
+        ozonApiForCommodityConversions.append(OzonApiForCommodityConversion(header))
 
     while True:
 
-        for ozonapi in ozonapis:
+        for ozonapi, ozonApiForCommodityConversion in zip(ozonApis, ozonApiForCommodityConversions):
             print(f"{'-'*30}{ozonapi.getheader()}{'-'*30}")
             ozonapi.ReminderRegisterPassport()
+            ozonApiForCommodityConversion.run(bossheader)
         print(f"{'-'*30}等待{delay_time / 60}分钟{'-'*30}")
         time.sleep(delay_time)
 

@@ -1,5 +1,5 @@
 import time
-from .ozon_Api import OzonApi
+from ozon_Api import OzonApi
 
 headers = {
     "Client-Id": "1499102",

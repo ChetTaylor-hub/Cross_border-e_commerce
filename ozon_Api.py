@@ -103,9 +103,22 @@ class OzonApi():
                 response = requests.post(url, headers=self.headers, json=application)
                 # print(response.json())
                 if response.json()["result"] == "success":
+                    print(f"---------chat_id: {chat_id}发送成功---------")
                     send_ret = True
 
+    def chatHistory(self, chat_id):
+        url = "https://api-seller.ozon.ru/v2/chat/history"
+        applacation = {
+            "chat_id": chat_id,
+            # "direction": "Forward",
+            # "from_message_id": 3000000000118032000,
+            # "limit": 1
+        }
+        response = requests.post(url, headers=self.headers, json=applacation)
+        return response.json()
+
     def ReminderRegisterPassport(self):
+        print(f"{'-'*30}{self.getheader()} 开始发送提醒注册护照的信息{'-'*30}")
         ChatContent = {
             "substatus": "posting_awaiting_passport_data",
             "text": "Your passport information has not been collected yet, please fill it out as soon as possible"
@@ -156,8 +169,6 @@ class OzonApiForCommodityConversion(OzonApi):
         GoodsSale = self.ShipmentList()
         postings = self.SelectFromShipmentList(GoodsSale, substatus="posting_awaiting_passport_data")
 
-
-
         for posting in postings:
             application = {
                 "offer_id": posting["products"][0]["offer_id"],
@@ -171,13 +182,13 @@ class OzonApiForCommodityConversion(OzonApi):
             products["info"].append(posting)
 
 
-        return products
+        return products["info"], products["website"]
     
-    def ChatBuyersStart(self, products):
+    def ChatBuyersStart(self, infos):
         chat_ids = []
         url = "https://api-seller.ozon.ru/v1/chat/start"
         
-        for info in products["info"]:
+        for info in infos:
             # 逐个创建聊天窗口，返回聊天窗口id号
             application = {
                 "posting_number": info["posting_number"]
@@ -188,7 +199,7 @@ class OzonApiForCommodityConversion(OzonApi):
             chat_ids.append(response.json()["result"]["chat_id"])
             # print(response.json())
 
-        return chat_ids, products["website"]
+        return chat_ids
     
     def ChatBuyersSend(self, chat_ids, websites, text="no text"):
         url = "https://api-seller.ozon.ru/v1/chat/send/message"
@@ -209,9 +220,22 @@ class OzonApiForCommodityConversion(OzonApi):
                     print(f"---------chat_id: {chat_id} 发送成功---------")
                     send_ret = True
 
-    def run(self, text="no text"):
-        products = self.getTheProductWebsite(headers[1])
-        chat_ids, websites = self.ChatBuyersStart(products)
+
+
+    def run(self, header, text="no text"):
+        print(f"{'-'*30}{self.getheader()} 开始发送提醒网址的信息{'-'*30}")
+        text = "Здравствуйте, уважаемый клиент, наш склад был разрушен во время недавнего землетрясения в Ганьсу, Китай.Поэтому мы не можем отправить вам товар.Пожалуйста, закажете товар в другом из наших магазинов, и мы предоставим вам скидку.Еще раз, я хотел бы выразить вам свои самые искренние извинения, ссылка приведена ниже："
+
+        infos, websites = self.getTheProductWebsite(header)
+        chat_ids = self.ChatBuyersStart(infos)
+
+        # 去除已发送的chat_id
+        for chat_id in chat_ids:
+            chat_history = self.chatHistory(chat_id)
+            for message in chat_history["messages"]:
+                if text in message["data"][0]:
+                    chat_ids.remove(chat_id)
+                    break
         self.ChatBuyersSend(chat_ids, websites, text)
 
 url = "https://www.ozon.ru/product/1356525140/"
@@ -231,6 +255,5 @@ headers = [
 
 if __name__ == "__main__":
     text = "Здравствуйте, уважаемый клиент, наш склад был разрушен во время недавнего землетрясения в Ганьсу, Китай.Поэтому мы не можем отправить вам товар.Пожалуйста, закажете товар в другом из наших магазинов, и мы предоставим вам скидку.Еще раз, я хотел бы выразить вам свои самые искренние извинения, ссылка приведена ниже："
-
     OzonApiForcopy = OzonApiForCommodityConversion(headers[0])
-    OzonApiForcopy.run(text)
+    OzonApiForcopy.run(headers[1], text)
