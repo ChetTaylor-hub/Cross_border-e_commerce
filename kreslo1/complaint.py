@@ -8,6 +8,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from loguru import logger
 from spider import SpiderShop
 
+from ozon_Api import OzonApi
+
 logger.add("log.log")
 
 
@@ -119,6 +121,18 @@ class Complaint(SpiderShop):
             
         cls.driver.close()
 
+def complaintsAndSales(headers, delay):
+    Ozinapi = OzonApi(headers)
+
+    try:
+        productlist = Ozinapi.getTheProductList()
+        for product in productlist:
+            url = Ozinapi.getTheProductWebsite(product["offer_id"])
+            Complaint.complaint(url)
+    except Exception as e:
+        logger.error(f"捕获到异常：{e} 异常类型：{type(e)} 异常详细信息：{str(e)}")
+        
+    time.sleep(delay)
 
 if __name__ == '__main__':
     url = 'https://www.ozon.ru/product/kreslo-kachalka-ja012-90h90h68-sm-1323412451/'

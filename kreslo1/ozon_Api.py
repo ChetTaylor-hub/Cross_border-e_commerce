@@ -1,5 +1,4 @@
 import requests
-from complaint import Complaint
 
 class OzonApi():
     def __init__(self, headers):
@@ -54,56 +53,53 @@ class OzonApi():
         print(f"-------------total: {len(response.json()['result']['postings'])}-------------")
         for i in response.json()["result"]["postings"]:
             print(f"order: {i['order_id']}, status: {i['status']}, substatus: {i['substatus']}")
-        return response
+        return response.json()["result"]["postings"]
     
-    def SelectFromShipmentList(Self, response, substatus=""):
-        postings = []
+    def SelectFromShipmentList(self, postings, substatus=""):
+        subPostings = []
         # 筛选订单
-        for i in response.json()["result"]["postings"]:
-            if i["substatus"] == substatus:
-                postings.append(i)
+        for posting in postings:
+            if posting["substatus"] == substatus:
+                subPostings.append(posting)
             # print(i["posting_number"])
-        return postings
+        return subPostings
         
 
-    def ChatBuyersStart(self, response, ChatContent):
-        chat_ids = []
-        
-        posting_numbers = [posting["posting_number"] for posting in self.SelectFromShipmentList(response, ChatContent["substatus"])]
-
+    def ChatBuyersStart(self, posting):
         url = "https://api-seller.ozon.ru/v1/chat/start"
+        
+        posting_number = posting["posting_number"]
+        application = {
+            "posting_number": posting_number
+        }
 
-        # 逐个创建聊天窗口，返回聊天窗口id号
-        for posting_number in posting_numbers:
-            application = {
-                "posting_number": posting_number
-            }
+        response = requests.post(url, headers=self.headers, json=application)
 
-            response = requests.post(url, headers=self.headers, json=application)
+        chat_id = response.json()["result"]["chat_id"]
+        # print(response.json())
 
-            chat_ids.append(response.json()["result"]["chat_id"])
-            # print(response.json())
+        return chat_id
+    
 
-        return chat_ids
-
-    def ChatBuyersSend(self, chat_ids, text="no text"):
+    def ChatBuyersSend(self, chat_id, text="no text"):
         url = "https://api-seller.ozon.ru/v1/chat/send/message"
 
-        for chat_id in chat_ids:
-            print(f"---------chat_id: {chat_id}正在被发送---------")
+        send_ret = False
 
-            send_ret = False
+        while send_ret == False: # 如果发送不成功，则一直发送
+            application = {
+                "chat_id": chat_id,
+                "text": text
+            }
+            response = requests.post(url, headers=self.headers, json=application)
+            # print(response.json())
+            if response.json()["result"] == "success":
 
-            while send_ret == False: # 如果发送不成功，则一直发送
-                application = {
-                    "chat_id": chat_id,
-                    "text": text
-                }
-                response = requests.post(url, headers=self.headers, json=application)
-                # print(response.json())
-                if response.json()["result"] == "success":
-                    print(f"---------chat_id: {chat_id}发送成功---------")
-                    send_ret = True
+                print(f"---------chat_id: {chat_id}发送成功---------")
+                send_ret = True
+                return True
+                
+        return False
 
     def chatHistory(self, chat_id):
         url = "https://api-seller.ozon.ru/v2/chat/history"
@@ -164,16 +160,7 @@ class OzonApi():
         chat_ids = self.ChatBuyersStart(response, ChatContent)
         self.ChatBuyersSend(chat_ids, ChatContent["text"])
 
-def complaintsAndSales():
-    Ozinapi = OzonApi(headers[2])
-    while True:
-        productlist = Ozinapi.getTheProductList()
-        for product in productlist:
-            try:
-                url = Ozinapi.getTheProductWebsite(product["offer_id"])
-                Complaint.complaint(url)
-            except:
-                continue
+
 
 class OzonApiForCommodityConversion(OzonApi):
     def __init__(self, header) -> None:
