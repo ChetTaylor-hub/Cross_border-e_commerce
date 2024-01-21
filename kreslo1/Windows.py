@@ -5,6 +5,7 @@ from PyQt5.QtCore import QThread, pyqtSignal, Qt
 
 from passport import register_passport
 from complaint import complaintsAndSales
+from pickup import urgePickUp
 
 class WorkerThread(QThread):
     task_completed = pyqtSignal(str)
@@ -73,6 +74,8 @@ class MainWindow(QMainWindow):
         self.fill_passport_info_confirm_button = QPushButton("确认")
         self.file_complaint_info_confirm_button = QPushButton("确认")
 
+        # 重置按钮
+        self.init_button = QPushButton("重置")
 
         # 设置布局
         self.setup_layout()
@@ -100,13 +103,14 @@ class MainWindow(QMainWindow):
         self.fill_passport_info_confirm_button.clicked.connect(self.show_success_message)
         self.file_complaint_info_confirm_button.clicked.connect(self.show_success_message)
 
+        # 连接重置按钮有
+        self.init_button.clicked.connect(self.init)
         # 添加一个确认按钮，将上面信息确认后，在进行线程初始化
 
-
         # 初始化线程对象
-        # self.collect_money_thread = WorkerThread(collect_money, self.ClientId_input.text(), self.ApiKey_input.text())
-        # self.fill_passport_thread = WorkerThread(fill_passport, self.ClientId_input.text(), self.ApiKey_input.text())
-        # self.file_complaint_thread = WorkerThread(file_complaint, self.ClientId_input.text(), self.ApiKey_input.text())
+        self.collect_money_thread = WorkerThread(collect_money, self.ClientId_input.text(), self.ApiKey_input.text())
+        self.fill_passport_thread = WorkerThread(fill_passport, self.ClientId_input.text(), self.ApiKey_input.text())
+        self.file_complaint_thread = WorkerThread(file_complaint, self.ClientId_input.text(), self.ApiKey_input.text())
 
     def setup_layout(self):
         # 设置主布局
@@ -131,6 +135,7 @@ class MainWindow(QMainWindow):
         main_layout.addWidget(self.collect_money_group)
         main_layout.addWidget(self.fill_passport_group)
         main_layout.addWidget(self.file_complaint_group)
+        main_layout.addWidget(self.init_button)
         # main_layout.addWidget(self.confirm_button)
 
         # 设置主窗口中央的 Widget
@@ -159,6 +164,14 @@ class MainWindow(QMainWindow):
     # 确认点击成功槽函数
     def show_success_message(self):
         QMessageBox.information(self, "成功", "点击成功！")
+
+    def init(self):
+        self.collect_money_thread.stop()
+        self.collect_money_thread = None
+        self.file_complaint_thread.stop()
+        self.file_complaint_thread = None
+        self.fill_passport_thread.stop()
+        self.fill_passport_thread = None
 
     def collect_money_info_confirm_input(self):
         client_id = self.ClientId_input.text()
@@ -220,31 +233,50 @@ class MainWindow(QMainWindow):
 
 def collect_money(*args, **kwarg):
     # 实现催收功能的函数，使用传递的参数
+    res  = False
+
     headers = {
         "Client-Id": args[0],
         "Api-Key": args[1]
     }
     delay = args[2]
-    register_passport(headers, delay)
+    runing = args[3]
+    res = urgePickUp(headers, delay)
     print("执行催收操作")
-    return f"执行催收操"
+    if res:
+        return f"运行成功，可以点击停止暂停，暂停后点击开始继续，如果想要修改配置，请先点击停止，修改相应参数后点击确认在点击开始"
+    return f"运行失败，输入的参数有误，重新点击停止->确认->开始"
 
 def fill_passport(*args, **kwarg):
     # 实现填写护照功能的函数，使用传递的参数
+    res = False
 
-    print("执行填写护照操作")
-    return f"执行填写护照操"
-
-def file_complaint(*args, **kwarg):
-    # 实现投诉功能的函数，使用传递的参数
     headers = {
         "Client-Id": args[0],
         "Api-Key": args[1]
     }
     delay = args[2]
-    complaintsAndSales(headers, delay)
+    res = register_passport(headers, delay)
+
+    print("执行填写护照操作")
+    if res:
+        return f"运行成功，可以点击停止暂停，暂停后点击开始继续，如果想要修改配置，请先点击停止，修改相应参数后点击确认在点击开始"
+    return f"运行失败，输入的参数有误，重新点击停止->确认->开始"
+
+def file_complaint(*args, **kwarg):
+    # 实现投诉功能的函数，使用传递的参数
+    res = False
+
+    headers = {
+        "Client-Id": args[0],
+        "Api-Key": args[1]
+    }
+    delay = args[2]
+    res = complaintsAndSales(headers, delay)
     print("执行投诉操作")
-    return f"执行投诉操作"
+    if res:
+        return f"运行成功，可以点击停止暂停，暂停后点击开始继续，如果想要修改配置，请先点击停止，修改相应参数后点击确认在点击开始"
+    return f"运行失败，输入的参数有误，重新点击停止->确认->开始"
 
 if __name__ == '__main__':
 

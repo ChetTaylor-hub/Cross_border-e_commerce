@@ -8,10 +8,16 @@ __description__ = "此文件说明"
 
 import csv
 import os
+import subprocess
 import time
 from typing import Union
+import aircv as ac
 
+import cv2
+import numpy as np
+import pyautogui
 import requests
+from PIL import ImageGrab
 from loguru import logger
 from selenium import webdriver
 from selenium.common import NoSuchElementException, TimeoutException
@@ -41,26 +47,28 @@ class SpiderShop:
         chromedriver = os.path.join(cur_dir, "chromedriver.exe")
         if os.path.exists(chromedriver):
             service = Service(executable_path=chromedriver)
-        user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
         user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+        # user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.225 Safari/537.36"
+        user_data = "C:\\Users\\ChenTao\\AppData\\Local\\Google\\Chrome\\User Data"
         options.add_argument(
             f"--user-agent='{user_agent}'")
+        options.add_argument(
+            f"--user-data-dir='{user_data}'")
 
         if need:
-            options.add_argument('--incognito')
+            # options.add_argument('--incognito')
             # options.add_argument('--headless')
             # options.add_argument('--disable-gpu')
             options.add_argument(
                 'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36')
+
             cls.driver = webdriver.Chrome(service=service, options=options)
         else:
             os.system(rf'start chrome --remote-debugging-port=19521 --user-data-dir="C:\selenium"')  # --disable-plugins
+            # os.system(rf'start chrome --remote-debugging-port=19521')
             options.add_experimental_option("debuggerAddress", "127.0.0.1:19521")
-            # options.add_experimental_option('useAutomationExtension', False)
             cls.driver = webdriver.Chrome(service=service, options=options)
-            # cls.driver.execute_cdp_cmd('Network.clearBrowserCookies', {})
-            # cls.driver.execute_cdp_cmd('Network.clearBrowserCache', {})
-            # cls.driver.execute_cdp_cmd('Network.clearBrowserCookies', {})
             cls.driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
                 "source": """
                         Object.defineProperty(navigator, 'webdriver', {
@@ -157,32 +165,48 @@ class SpiderShop:
 
     @classmethod
     def verify(cls):
-        url = "https://www.ozon.ru/api/entrypoint-api.bx/page/json/v2?url=/searchSuggestions/?text=&url=/search/?text={value}&from_global=true"
+        src_image = os.path.join(cur_dir, f"verfy_picture/1.png")
+        obj_image = os.path.join(cur_dir, f"verfy_picture/mmexport1705739170944.jpg")
 
-        for _ in range(13):
+        verify_cnt = 0
+        for _ in range(30):
             try:
-                page_text = cls.driver.page_source
-                if "确认您是真人" in page_text or "检查站点连接是否安全" in page_text or "请稍候" in page_text:
-                    print("点击验证")
-                    cls.driver.get(url)
-                    # //*[@id="challenge-stage"]/div/label/input
-                    cls.driver.switch_to.frame(
-                        cls.driver.find_element(By.XPATH, '/html/body/div[1]/div/div[1]/div/div/iframe'))
-                    if _ := cls.is_find_element(by=By.XPATH, value='//*[@id="challenge-stage"]/div/label/span[2]'):
-                        actions = ActionChains(cls.driver)
-                        actions.move_to_element(_).click().perform()
+                screenshot = ImageGrab.grab()
+                screenshot.save(src_image)
+                subprocess.getoutput(f"taskkill /F /im chromedriver.exe")
+                # cls.driver = None
 
+                result = cls.matchimg(src_image, obj_image)
+                print(result.get("result"))
+                if result:
+                    logger.info(f"开始点击验证")
+                    pyautogui.click(*result.get("result"))
+                    verify_cnt += 1
+                    if verify_cnt >= 2:
+                        return True
+                else:
+                    return True
             except Exception as e:
                 pass
             finally:
-                cls.driver.switch_to.default_content()
-                if cls.is_find_element(By.XPATH, '//*[@id="layoutPage"]/div[1]/div[4]/div[2]/div/div/div[2]/span',
-                                       timeout=1):
-                    break
+                time.sleep(1)
+
+    @classmethod
+    def isVerifyPage(cls):
+        page_text = cls.driver.page_source
+        if "确认您是真人" in page_text or "检查站点连接是否安全" in page_text or "请稍候" in page_text:
+            return True
+        return False
 
     @classmethod
     def page_loaded(cls, driver):
         return driver.execute_script('return document.readyState') == 'complete'
+
+    @classmethod
+    def close(cls):
+        cls.driver = None
+        subprocess.getoutput(f"taskkill /F /im chrome.exe")
+        subprocess.getoutput(f"taskkill /F /im chromedriver.exe")
 
     @classmethod
     def save_csv(cls, data):
@@ -192,12 +216,38 @@ class SpiderShop:
             writer.writerow(data)
 
     @classmethod
+    def matchimg(cls, imgsrc, imgobj, confidence=0.55):
+        """
+         :param imgsrc:
+         :param imgobj:
+         :param confidence:
+         :rtype:dict
+         :return:
+
+         Args:
+             imgsrc(string): 图像、素材
+             imgobj(string): 需要查找的图片
+              confidence: 阈值，当相识度小于该阈值的时候，就忽略掉
+
+         Returns:
+             A tuple of found [(point, score), ...]
+         """
+
+        imsrc = cv2.imdecode(np.fromfile(imgsrc, dtype=np.uint8), cv2.IMREAD_UNCHANGED)
+        imobj = cv2.imdecode(np.fromfile(imgobj, dtype=np.uint8), cv2.IMREAD_UNCHANGED)
+
+        match_result = ac.find_template(imsrc, imobj, confidence)
+        print(imgsrc, imgobj, match_result)
+        return match_result
+
+    @classmethod
     def get_shop_info(cls, url):
         cls.init_driver()
         tmp_name = []
         cls.shop_name = {}
         while True:
-            # cls.veify_api()
+            if not cls.driver:
+                cls.init_driver()
             cls.driver.get(url)
             wait = WebDriverWait(cls.driver, 10)
             wait.until(cls.page_loaded)
@@ -205,13 +255,18 @@ class SpiderShop:
             scroll_script = "window.scrollTo(0, 900);"
             cls.driver.execute_script(scroll_script)
 
-            time.sleep(1)
-
             # 更多
             if _ := cls.is_find_element(by=By.XPATH, value='//*[@id="seller-list"]/button'):
                 cls.click(_)
 
-            cls.verify()
+            page_text = cls.driver.page_source
+            if "确认您是真人" in page_text or "检查站点连接是否安全" in page_text or "请稍候" in page_text:
+                if cls.verify():
+                    logger.debug("验证通过")
+                else:
+                    logger.warning("验证未通过")
+                cls.close()
+                continue
             # 查看有几个
             records = cls.driver.find_elements(by=By.XPATH, value='//*[@id="seller-list"]/div/div')
 
@@ -253,8 +308,6 @@ class SpiderShop:
             logger.info(cls.shop_name)
             if len(tmp_name) == len(cls.shop_name):
                 break
-        
-        # cls.driver.close()
         return cls.shop_name
 
 

@@ -1,0 +1,1069 @@
+2024-01-20 10:57:54.546 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 10:58:30.261 | ERROR    | pickup:urgePickUp:24 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v3/posting/fbs/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'>
+2024-01-20 10:59:42.736 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603453/
+2024-01-20 11:00:06.966 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603453/
+2024-01-20 11:03:42.278 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 11:04:04.673 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 11:04:59.301 | INFO     | __main__:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 11:06:15.376 | INFO     | __main__:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 11:11:00.138 | INFO     | __main__:<module>:28 - 当前路径：d:/work/Cross_border-e_commerce/kreslo1
+2024-01-20 11:11:17.632 | INFO     | __main__:get_shop_info:253 - {}
+2024-01-20 11:11:39.369 | INFO     | __main__:<module>:28 - 当前路径：d:/work/Cross_border-e_commerce/kreslo1
+2024-01-20 11:11:55.386 | INFO     | __main__:get_shop_info:253 - {}
+2024-01-20 11:12:07.758 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 11:12:27.078 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:12:38.579 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:12:50.349 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:13:02.325 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:13:14.487 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:13:26.607 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:13:38.251 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:13:50.055 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:14:02.709 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:14:14.615 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:14:26.569 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:14:38.847 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:14:51.087 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:15:03.064 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:15:15.278 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:15:26.971 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:15:38.907 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:15:50.881 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:16:02.964 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:16:15.004 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:16:27.158 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:16:39.186 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:16:51.196 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:17:03.441 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:17:15.595 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:17:27.550 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 11:17:43.365 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603453/
+2024-01-20 11:22:43.217 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:22:45.163 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603586/
+2024-01-20 11:23:52.699 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 11:23:58.959 | DEBUG    | spider:find_shop:109 - 点击：J&A
+2024-01-20 11:24:01.367 | DEBUG    | spider:find_shop:130 - J&A | https://www.ozon.ru/product/kreslo-kachalka-ja012-90h90h68-sm-1323403575/
+2024-01-20 11:24:04.369 | INFO     | spider:get_shop_info:253 - {'J&A': ['https://www.ozon.ru/product/kreslo-kachalka-ja012-90h90h68-sm-1323403575/', '1323403575']}
+2024-01-20 11:24:08.256 | DEBUG    | spider:get_shop_info:251 - J&A已找到过，不在查找
+2024-01-20 11:24:08.310 | DEBUG    | spider:find_shop:109 - 点击：J&A-2
+2024-01-20 11:29:19.088 | INFO     | __main__:<module>:28 - 当前路径：d:/work/Cross_border-e_commerce/kreslo1
+2024-01-20 11:30:04.454 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 11:30:23.085 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603453/
+2024-01-20 11:32:34.200 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+ 异常类型：<class 'selenium.common.exceptions.NoSuchWindowException'> 异常详细信息：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+
+2024-01-20 11:32:55.499 | INFO     | __main__:<module>:28 - 当前路径：d:/work/Cross_border-e_commerce/kreslo1
+2024-01-20 11:33:19.172 | INFO     | __main__:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 11:36:33.256 | INFO     | __main__:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 11:37:17.911 | INFO     | __main__:get_shop_info:253 - {}
+2024-01-20 11:37:49.260 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 11:38:07.451 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603453/
+2024-01-20 11:38:44.655 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:38:46.257 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603586/
+2024-01-20 11:39:25.078 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:39:26.543 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603419/
+2024-01-20 11:39:42.539 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+ 异常类型：<class 'selenium.common.exceptions.NoSuchWindowException'> 异常详细信息：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+
+2024-01-20 11:39:58.257 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603453/
+2024-01-20 11:40:37.659 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:40:39.563 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603586/
+2024-01-20 11:41:20.656 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:41:22.151 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603419/
+2024-01-20 11:42:03.894 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:42:05.502 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603485/
+2024-01-20 11:42:44.935 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:42:46.997 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603403/
+2024-01-20 11:43:27.179 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:43:28.623 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603577/
+2024-01-20 11:44:09.948 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:44:11.539 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603668/
+2024-01-20 11:44:16.634 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：Message: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D22B20]
+	(No symbol) [0x00007FF7B0D2139E]
+	(No symbol) [0x00007FF7B0D209B6]
+	(No symbol) [0x00007FF7B0DCE2E9]
+	(No symbol) [0x00007FF7B0DA20AA]
+	(No symbol) [0x00007FF7B0DBAAA4]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+ 异常类型：<class 'selenium.common.exceptions.WebDriverException'> 异常详细信息：Message: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D22B20]
+	(No symbol) [0x00007FF7B0D2139E]
+	(No symbol) [0x00007FF7B0D209B6]
+	(No symbol) [0x00007FF7B0DCE2E9]
+	(No symbol) [0x00007FF7B0DA20AA]
+	(No symbol) [0x00007FF7B0DBAAA4]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+
+2024-01-20 11:44:33.029 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603453/
+2024-01-20 11:44:36.155 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：Message: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D22B20]
+	(No symbol) [0x00007FF7B0D2139E]
+	(No symbol) [0x00007FF7B0D209B6]
+	(No symbol) [0x00007FF7B0DCE2E9]
+	(No symbol) [0x00007FF7B0DA20AA]
+	(No symbol) [0x00007FF7B0DBAAA4]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+ 异常类型：<class 'selenium.common.exceptions.WebDriverException'> 异常详细信息：Message: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D22B20]
+	(No symbol) [0x00007FF7B0D2139E]
+	(No symbol) [0x00007FF7B0D209B6]
+	(No symbol) [0x00007FF7B0DCE2E9]
+	(No symbol) [0x00007FF7B0DA20AA]
+	(No symbol) [0x00007FF7B0DBAAA4]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+
+2024-01-20 11:44:52.154 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603453/
+2024-01-20 11:45:31.833 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:45:33.270 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603586/
+2024-01-20 11:46:11.662 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:46:13.508 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603419/
+2024-01-20 11:46:16.420 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：Message: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D22B20]
+	(No symbol) [0x00007FF7B0D2139E]
+	(No symbol) [0x00007FF7B0D209B6]
+	(No symbol) [0x00007FF7B0DCE2E9]
+	(No symbol) [0x00007FF7B0DA20AA]
+	(No symbol) [0x00007FF7B0DBAAA4]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+ 异常类型：<class 'selenium.common.exceptions.WebDriverException'> 异常详细信息：Message: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D22B20]
+	(No symbol) [0x00007FF7B0D2139E]
+	(No symbol) [0x00007FF7B0D209B6]
+	(No symbol) [0x00007FF7B0DCE2E9]
+	(No symbol) [0x00007FF7B0DA20AA]
+	(No symbol) [0x00007FF7B0DBAAA4]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+
+2024-01-20 11:46:32.380 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603453/
+2024-01-20 11:47:10.539 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:47:12.280 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603586/
+2024-01-20 11:47:37.812 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+ 异常类型：<class 'selenium.common.exceptions.NoSuchWindowException'> 异常详细信息：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+
+2024-01-20 11:47:53.649 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603453/
+2024-01-20 11:48:32.740 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:48:34.316 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603586/
+2024-01-20 11:48:37.904 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：Message: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D22B20]
+	(No symbol) [0x00007FF7B0D2139E]
+	(No symbol) [0x00007FF7B0D209B6]
+	(No symbol) [0x00007FF7B0DCE2E9]
+	(No symbol) [0x00007FF7B0DA20AA]
+	(No symbol) [0x00007FF7B0DBAAA4]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+ 异常类型：<class 'selenium.common.exceptions.WebDriverException'> 异常详细信息：Message: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D22B20]
+	(No symbol) [0x00007FF7B0D2139E]
+	(No symbol) [0x00007FF7B0D209B6]
+	(No symbol) [0x00007FF7B0DCE2E9]
+	(No symbol) [0x00007FF7B0DA20AA]
+	(No symbol) [0x00007FF7B0DBAAA4]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+
+2024-01-20 11:48:54.626 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603453/
+2024-01-20 11:48:57.536 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：Message: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D22B20]
+	(No symbol) [0x00007FF7B0D2139E]
+	(No symbol) [0x00007FF7B0D209B6]
+	(No symbol) [0x00007FF7B0DCE2E9]
+	(No symbol) [0x00007FF7B0DA20AA]
+	(No symbol) [0x00007FF7B0DBAAA4]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+ 异常类型：<class 'selenium.common.exceptions.WebDriverException'> 异常详细信息：Message: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D22B20]
+	(No symbol) [0x00007FF7B0D2139E]
+	(No symbol) [0x00007FF7B0D209B6]
+	(No symbol) [0x00007FF7B0DCE2E9]
+	(No symbol) [0x00007FF7B0DA20AA]
+	(No symbol) [0x00007FF7B0DBAAA4]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+
+2024-01-20 11:49:08.473 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 11:49:32.799 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1356051205/
+2024-01-20 11:49:40.459 | DEBUG    | spider:find_shop:109 - 点击：дом музыки
+2024-01-20 11:49:43.423 | DEBUG    | spider:find_shop:130 - дом музыки | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/
+2024-01-20 11:49:46.441 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175']}
+2024-01-20 11:49:49.859 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 11:49:49.932 | DEBUG    | spider:find_shop:109 - 点击：Волшебный магазин Хогвартса
+2024-01-20 11:49:51.302 | DEBUG    | spider:find_shop:130 - Волшебный магазин Хогвартса | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/
+2024-01-20 11:49:54.309 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973']}
+2024-01-20 11:49:57.599 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 11:49:57.681 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 11:49:57.761 | DEBUG    | spider:find_shop:109 - 点击：Bach‘s Musical Instrument Shop
+2024-01-20 11:49:59.157 | DEBUG    | spider:find_shop:130 - Bach‘s Musical Instrument Shop | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/
+2024-01-20 11:50:02.169 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313']}
+2024-01-20 11:50:06.514 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 11:50:06.549 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 11:50:06.583 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 11:50:06.659 | DEBUG    | spider:find_shop:109 - 点击：Music Dream
+2024-01-20 11:50:08.778 | DEBUG    | spider:find_shop:130 - Music Dream | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/
+2024-01-20 11:50:11.781 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940']}
+2024-01-20 11:50:15.714 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 11:50:15.766 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 11:50:15.797 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 11:50:15.860 | DEBUG    | spider:get_shop_info:251 - Music Dream已找到过，不在查找
+2024-01-20 11:50:15.930 | DEBUG    | spider:find_shop:109 - 点击：Haer Guitar Zone
+2024-01-20 11:50:21.767 | DEBUG    | spider:find_shop:130 - Haer Guitar Zone | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/
+2024-01-20 11:50:24.771 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940'], 'Haer Guitar Zone': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/', '1340741467']}
+2024-01-20 11:50:28.309 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 11:50:28.345 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 11:50:28.378 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 11:50:28.408 | DEBUG    | spider:get_shop_info:251 - Music Dream已找到过，不在查找
+2024-01-20 11:50:28.442 | DEBUG    | spider:get_shop_info:251 - Haer Guitar Zone已找到过，不在查找
+2024-01-20 11:50:28.497 | DEBUG    | spider:find_shop:109 - 点击：Рок - хаус
+2024-01-20 11:50:31.514 | DEBUG    | spider:find_shop:130 - Рок - хаус | https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1288937093/
+2024-01-20 11:50:34.518 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940'], 'Haer Guitar Zone': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/', '1340741467'], 'Рок - хаус': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1288937093/', '1288937093']}
+2024-01-20 11:50:39.311 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 11:50:39.365 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 11:50:39.481 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 11:50:39.625 | DEBUG    | spider:get_shop_info:251 - Music Dream已找到过，不在查找
+2024-01-20 11:50:39.663 | DEBUG    | spider:get_shop_info:251 - Haer Guitar Zone已找到过，不在查找
+2024-01-20 11:50:39.745 | DEBUG    | spider:get_shop_info:251 - Рок - хаус已找到过，不在查找
+2024-01-20 11:50:39.833 | DEBUG    | spider:find_shop:109 - 点击：iWALK
+2024-01-20 11:50:41.068 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+ 异常类型：<class 'selenium.common.exceptions.NoSuchWindowException'> 异常详细信息：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+
+2024-01-20 11:52:03.835 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1356051205/
+2024-01-20 11:52:09.498 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+ 异常类型：<class 'selenium.common.exceptions.NoSuchWindowException'> 异常详细信息：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+
+2024-01-20 11:52:38.028 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 11:54:27.214 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603453/
+2024-01-20 11:55:04.193 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:55:05.613 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603586/
+2024-01-20 11:55:45.143 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:55:46.567 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603419/
+2024-01-20 11:56:27.234 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:56:28.738 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603485/
+2024-01-20 11:57:12.281 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:57:13.664 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603403/
+2024-01-20 11:57:52.482 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:57:54.180 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603577/
+2024-01-20 11:58:33.511 | INFO     | spider:get_shop_info:253 - {}
+2024-01-20 11:58:35.900 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1320603668/
+2024-01-20 11:58:39.961 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：Message: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D22B20]
+	(No symbol) [0x00007FF7B0D2139E]
+	(No symbol) [0x00007FF7B0D209B6]
+	(No symbol) [0x00007FF7B0DCE2E9]
+	(No symbol) [0x00007FF7B0DA20AA]
+	(No symbol) [0x00007FF7B0DBAAA4]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+ 异常类型：<class 'selenium.common.exceptions.WebDriverException'> 异常详细信息：Message: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D22B20]
+	(No symbol) [0x00007FF7B0D2139E]
+	(No symbol) [0x00007FF7B0D209B6]
+	(No symbol) [0x00007FF7B0DCE2E9]
+	(No symbol) [0x00007FF7B0DA20AA]
+	(No symbol) [0x00007FF7B0DBAAA4]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+
+2024-01-20 12:16:12.613 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 12:17:17.842 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1356051205/
+2024-01-20 12:17:19.018 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：Message: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D22B20]
+	(No symbol) [0x00007FF7B0D2139E]
+	(No symbol) [0x00007FF7B0D209B6]
+	(No symbol) [0x00007FF7B0DCE2E9]
+	(No symbol) [0x00007FF7B0DA20AA]
+	(No symbol) [0x00007FF7B0DBAAA4]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+ 异常类型：<class 'selenium.common.exceptions.WebDriverException'> 异常详细信息：Message: unknown error: failed to change window state to 'normal', current state is 'maximized'
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D22B20]
+	(No symbol) [0x00007FF7B0D2139E]
+	(No symbol) [0x00007FF7B0D209B6]
+	(No symbol) [0x00007FF7B0DCE2E9]
+	(No symbol) [0x00007FF7B0DA20AA]
+	(No symbol) [0x00007FF7B0DBAAA4]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+
+2024-01-20 12:18:18.259 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 12:18:21.324 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 12:18:25.734 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 12:18:30.625 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 12:18:40.099 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 12:19:09.397 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 12:19:36.697 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1356051205/
+2024-01-20 12:19:51.447 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+ 异常类型：<class 'selenium.common.exceptions.NoSuchWindowException'> 异常详细信息：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+
+2024-01-20 12:21:03.277 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1356051205/
+2024-01-20 12:21:13.983 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+ 异常类型：<class 'selenium.common.exceptions.NoSuchWindowException'> 异常详细信息：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+
+2024-01-20 12:21:43.248 | INFO     | __main__:<module>:28 - 当前路径：d:/work/Cross_border-e_commerce/kreslo1
+2024-01-20 12:21:55.098 | INFO     | __main__:<module>:28 - 当前路径：d:/work/Cross_border-e_commerce/kreslo1
+2024-01-20 12:22:10.941 | INFO     | __main__:<module>:28 - 当前路径：d:/work/Cross_border-e_commerce/kreslo1
+2024-01-20 12:22:19.442 | INFO     | spider:<module>:28 - 当前路径：d:\work\Cross_border-e_commerce\kreslo1
+2024-01-20 12:22:39.679 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1356051205/
+2024-01-20 12:22:46.995 | DEBUG    | spider:find_shop:109 - 点击：дом музыки
+2024-01-20 12:22:49.688 | DEBUG    | spider:find_shop:130 - дом музыки | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/
+2024-01-20 12:22:52.703 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175']}
+2024-01-20 12:22:56.155 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:22:56.210 | DEBUG    | spider:find_shop:109 - 点击：Волшебный магазин Хогвартса
+2024-01-20 12:22:57.728 | DEBUG    | spider:find_shop:130 - Волшебный магазин Хогвартса | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/
+2024-01-20 12:23:00.738 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973']}
+2024-01-20 12:23:03.689 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:23:03.712 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:23:03.789 | DEBUG    | spider:find_shop:109 - 点击：Bach‘s Musical Instrument Shop
+2024-01-20 12:23:05.085 | DEBUG    | spider:find_shop:130 - Bach‘s Musical Instrument Shop | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/
+2024-01-20 12:23:08.091 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313']}
+2024-01-20 12:23:11.844 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:23:11.905 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:23:11.962 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 12:23:12.025 | DEBUG    | spider:find_shop:109 - 点击：Music Dream
+2024-01-20 12:23:13.345 | DEBUG    | spider:find_shop:130 - Music Dream | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/
+2024-01-20 12:23:16.350 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940']}
+2024-01-20 12:23:20.145 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:23:20.186 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:23:20.211 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 12:23:20.255 | DEBUG    | spider:get_shop_info:251 - Music Dream已找到过，不在查找
+2024-01-20 12:23:20.307 | DEBUG    | spider:find_shop:109 - 点击：Haer Guitar Zone
+2024-01-20 12:23:23.794 | DEBUG    | spider:find_shop:130 - Haer Guitar Zone | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/
+2024-01-20 12:23:26.800 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940'], 'Haer Guitar Zone': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/', '1340741467']}
+2024-01-20 12:23:30.830 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:23:30.860 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:23:30.897 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 12:23:30.942 | DEBUG    | spider:get_shop_info:251 - Music Dream已找到过，不在查找
+2024-01-20 12:23:30.991 | DEBUG    | spider:get_shop_info:251 - Haer Guitar Zone已找到过，不在查找
+2024-01-20 12:23:31.055 | DEBUG    | spider:find_shop:109 - 点击：Рок - хаус
+2024-01-20 12:23:34.144 | DEBUG    | spider:find_shop:130 - Рок - хаус | https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1288937093/
+2024-01-20 12:23:37.159 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940'], 'Haer Guitar Zone': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/', '1340741467'], 'Рок - хаус': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1288937093/', '1288937093']}
+2024-01-20 12:23:41.310 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:23:41.341 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:23:41.371 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 12:23:41.397 | DEBUG    | spider:get_shop_info:251 - Music Dream已找到过，不在查找
+2024-01-20 12:23:41.439 | DEBUG    | spider:get_shop_info:251 - Haer Guitar Zone已找到过，不在查找
+2024-01-20 12:23:41.473 | DEBUG    | spider:get_shop_info:251 - Рок - хаус已找到过，不在查找
+2024-01-20 12:23:41.540 | DEBUG    | spider:find_shop:109 - 点击：REKTR Official Store
+2024-01-20 12:23:43.926 | DEBUG    | spider:find_shop:130 - REKTR Official Store | https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1307915167/
+2024-01-20 12:23:46.938 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940'], 'Haer Guitar Zone': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/', '1340741467'], 'Рок - хаус': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1288937093/', '1288937093'], 'REKTR Official Store': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1307915167/', '1307915167']}
+2024-01-20 12:23:50.827 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:23:50.857 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:23:50.886 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 12:23:50.911 | DEBUG    | spider:get_shop_info:251 - Music Dream已找到过，不在查找
+2024-01-20 12:23:50.943 | DEBUG    | spider:get_shop_info:251 - Haer Guitar Zone已找到过，不在查找
+2024-01-20 12:23:50.977 | DEBUG    | spider:get_shop_info:251 - Рок - хаус已找到过，不在查找
+2024-01-20 12:23:51.012 | DEBUG    | spider:get_shop_info:251 - REKTR Official Store已找到过，不在查找
+2024-01-20 12:23:51.074 | DEBUG    | spider:find_shop:109 - 点击：iWALK
+2024-01-20 12:23:53.596 | DEBUG    | spider:find_shop:130 - iWALK | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1307719800/
+2024-01-20 12:23:56.600 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940'], 'Haer Guitar Zone': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/', '1340741467'], 'Рок - хаус': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1288937093/', '1288937093'], 'REKTR Official Store': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1307915167/', '1307915167'], 'iWALK': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1307719800/', '1307719800']}
+2024-01-20 12:24:00.057 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:24:00.090 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:24:00.122 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 12:24:00.155 | DEBUG    | spider:get_shop_info:251 - Music Dream已找到过，不在查找
+2024-01-20 12:24:00.203 | DEBUG    | spider:get_shop_info:251 - Haer Guitar Zone已找到过，不在查找
+2024-01-20 12:24:00.239 | DEBUG    | spider:get_shop_info:251 - Рок - хаус已找到过，不在查找
+2024-01-20 12:24:00.271 | DEBUG    | spider:get_shop_info:251 - REKTR Official Store已找到过，不在查找
+2024-01-20 12:24:00.307 | DEBUG    | spider:get_shop_info:251 - iWALK已找到过，不在查找
+2024-01-20 12:24:00.371 | DEBUG    | spider:find_shop:109 - 点击：Музыкальный Мир
+2024-01-20 12:24:02.805 | DEBUG    | spider:find_shop:130 - Музыкальный Мир | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335519432/
+2024-01-20 12:24:05.807 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940'], 'Haer Guitar Zone': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/', '1340741467'], 'Рок - хаус': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1288937093/', '1288937093'], 'REKTR Official Store': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1307915167/', '1307915167'], 'iWALK': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1307719800/', '1307719800'], 'Музыкальный Мир': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335519432/', '1335519432']}
+2024-01-20 12:24:08.952 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:24:08.988 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:24:09.023 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 12:24:09.074 | DEBUG    | spider:get_shop_info:251 - Music Dream已找到过，不在查找
+2024-01-20 12:24:09.111 | DEBUG    | spider:get_shop_info:251 - Haer Guitar Zone已找到过，不在查找
+2024-01-20 12:24:09.153 | DEBUG    | spider:get_shop_info:251 - Рок - хаус已找到过，不在查找
+2024-01-20 12:24:09.189 | DEBUG    | spider:get_shop_info:251 - iWALK已找到过，不在查找
+2024-01-20 12:24:09.226 | DEBUG    | spider:get_shop_info:251 - REKTR Official Store已找到过，不在查找
+2024-01-20 12:24:09.271 | DEBUG    | spider:get_shop_info:251 - Музыкальный Мир已找到过，不在查找
+2024-01-20 12:24:09.340 | DEBUG    | spider:find_shop:109 - 点击：БИГТВ77
+2024-01-20 12:24:12.269 | DEBUG    | spider:find_shop:130 - БИГТВ77 | https://www.ozon.ru/product/gitarnyy-protsessor-hotone-ampero-ii-stomp-1359352702/
+2024-01-20 12:24:15.275 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940'], 'Haer Guitar Zone': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/', '1340741467'], 'Рок - хаус': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1288937093/', '1288937093'], 'REKTR Official Store': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1307915167/', '1307915167'], 'iWALK': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1307719800/', '1307719800'], 'Музыкальный Мир': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335519432/', '1335519432'], 'БИГТВ77': ['https://www.ozon.ru/product/gitarnyy-protsessor-hotone-ampero-ii-stomp-1359352702/', '1359352702']}
+2024-01-20 12:24:26.533 | INFO     | complaint:_do_complaint:108 - 提交成功
+2024-01-20 12:24:36.227 | INFO     | complaint:_do_complaint:108 - 提交成功
+2024-01-20 12:24:55.463 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPConnectionPool(host='localhost', port=29944): Max retries exceeded with url: /session/2f6b18e721655cecd8fccee7f9e6bac1/execute/sync (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000017604A0DD00>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。')) 异常类型：<class 'urllib3.exceptions.MaxRetryError'> 异常详细信息：HTTPConnectionPool(host='localhost', port=29944): Max retries exceeded with url: /session/2f6b18e721655cecd8fccee7f9e6bac1/execute/sync (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000017604A0DD00>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2024-01-20 12:37:30.896 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 12:37:44.279 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)')))) 异常类型：<class 'requests.exceptions.ProxyError'> 异常详细信息：HTTPSConnectionPool(host='api-seller.ozon.ru', port=443): Max retries exceeded with url: /v2/product/list (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLZeroReturnError(6, 'TLS/SSL connection has been closed (EOF) (_ssl.c:1131)'))))
+2024-01-20 12:38:01.258 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1356051205/
+2024-01-20 12:38:14.576 | DEBUG    | spider:find_shop:109 - 点击：дом музыки
+2024-01-20 12:38:19.723 | DEBUG    | spider:find_shop:130 - дом музыки | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/
+2024-01-20 12:38:22.737 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175']}
+2024-01-20 12:38:28.910 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:38:29.002 | DEBUG    | spider:find_shop:109 - 点击：Волшебный магазин Хогвартса
+2024-01-20 12:38:30.994 | DEBUG    | spider:find_shop:130 - Волшебный магазин Хогвартса | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/
+2024-01-20 12:38:34.014 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973']}
+2024-01-20 12:38:38.293 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:38:38.358 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:38:38.479 | DEBUG    | spider:find_shop:109 - 点击：Bach‘s Musical Instrument Shop
+2024-01-20 12:38:40.305 | DEBUG    | spider:find_shop:130 - Bach‘s Musical Instrument Shop | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/
+2024-01-20 12:38:43.321 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313']}
+2024-01-20 12:38:47.583 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:38:47.646 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:38:47.692 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 12:38:47.807 | DEBUG    | spider:find_shop:109 - 点击：Music Dream
+2024-01-20 12:38:49.726 | DEBUG    | spider:find_shop:130 - Music Dream | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/
+2024-01-20 12:38:52.743 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940']}
+2024-01-20 12:38:57.347 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:38:57.408 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:38:57.461 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 12:38:57.514 | DEBUG    | spider:get_shop_info:251 - Music Dream已找到过，不在查找
+2024-01-20 12:38:57.617 | DEBUG    | spider:find_shop:109 - 点击：Haer Guitar Zone
+2024-01-20 12:39:01.138 | DEBUG    | spider:find_shop:130 - Haer Guitar Zone | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/
+2024-01-20 12:39:04.156 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940'], 'Haer Guitar Zone': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/', '1340741467']}
+2024-01-20 12:39:08.537 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:39:08.578 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:39:08.642 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 12:39:08.728 | DEBUG    | spider:get_shop_info:251 - Music Dream已找到过，不在查找
+2024-01-20 12:39:08.790 | DEBUG    | spider:get_shop_info:251 - Haer Guitar Zone已找到过，不在查找
+2024-01-20 12:39:08.923 | DEBUG    | spider:find_shop:109 - 点击：Рок - хаус
+2024-01-20 12:39:12.074 | DEBUG    | spider:find_shop:130 - Рок - хаус | https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1288937093/
+2024-01-20 12:39:15.091 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940'], 'Haer Guitar Zone': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/', '1340741467'], 'Рок - хаус': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1288937093/', '1288937093']}
+2024-01-20 12:39:19.926 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:39:19.991 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:39:20.042 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 12:39:20.128 | DEBUG    | spider:get_shop_info:251 - Music Dream已找到过，不在查找
+2024-01-20 12:39:20.206 | DEBUG    | spider:get_shop_info:251 - Haer Guitar Zone已找到过，不在查找
+2024-01-20 12:39:20.263 | DEBUG    | spider:get_shop_info:251 - Рок - хаус已找到过，不在查找
+2024-01-20 12:39:20.394 | DEBUG    | spider:find_shop:109 - 点击：REKTR Official Store
+2024-01-20 12:39:23.557 | DEBUG    | spider:find_shop:130 - REKTR Official Store | https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1307915167/
+2024-01-20 12:39:26.568 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940'], 'Haer Guitar Zone': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/', '1340741467'], 'Рок - хаус': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1288937093/', '1288937093'], 'REKTR Official Store': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1307915167/', '1307915167']}
+2024-01-20 12:39:30.996 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:39:31.062 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:39:31.110 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 12:39:31.175 | DEBUG    | spider:get_shop_info:251 - Music Dream已找到过，不在查找
+2024-01-20 12:39:31.243 | DEBUG    | spider:get_shop_info:251 - Haer Guitar Zone已找到过，不在查找
+2024-01-20 12:39:31.309 | DEBUG    | spider:get_shop_info:251 - Рок - хаус已找到过，不在查找
+2024-01-20 12:39:31.377 | DEBUG    | spider:get_shop_info:251 - REKTR Official Store已找到过，不在查找
+2024-01-20 12:39:31.490 | DEBUG    | spider:find_shop:109 - 点击：iWALK
+2024-01-20 12:39:34.395 | DEBUG    | spider:find_shop:130 - iWALK | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1307719800/
+2024-01-20 12:39:37.400 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940'], 'Haer Guitar Zone': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/', '1340741467'], 'Рок - хаус': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1288937093/', '1288937093'], 'REKTR Official Store': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1307915167/', '1307915167'], 'iWALK': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1307719800/', '1307719800']}
+2024-01-20 12:39:42.158 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:39:42.221 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:39:42.274 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 12:39:42.331 | DEBUG    | spider:get_shop_info:251 - Music Dream已找到过，不在查找
+2024-01-20 12:39:42.389 | DEBUG    | spider:get_shop_info:251 - Haer Guitar Zone已找到过，不在查找
+2024-01-20 12:39:42.476 | DEBUG    | spider:get_shop_info:251 - Рок - хаус已找到过，不在查找
+2024-01-20 12:39:42.541 | DEBUG    | spider:get_shop_info:251 - iWALK已找到过，不在查找
+2024-01-20 12:39:42.610 | DEBUG    | spider:get_shop_info:251 - REKTR Official Store已找到过，不在查找
+2024-01-20 12:39:42.705 | DEBUG    | spider:find_shop:109 - 点击：Музыкальный Мир
+2024-01-20 12:39:45.702 | DEBUG    | spider:find_shop:130 - Музыкальный Мир | https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335519432/
+2024-01-20 12:39:48.730 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940'], 'Haer Guitar Zone': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/', '1340741467'], 'Рок - хаус': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1288937093/', '1288937093'], 'REKTR Official Store': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1307915167/', '1307915167'], 'iWALK': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1307719800/', '1307719800'], 'Музыкальный Мир': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335519432/', '1335519432']}
+2024-01-20 12:39:53.154 | DEBUG    | spider:get_shop_info:251 - дом музыки已找到过，不在查找
+2024-01-20 12:39:53.223 | DEBUG    | spider:get_shop_info:251 - Волшебный магазин Хогвартса已找到过，不在查找
+2024-01-20 12:39:53.296 | DEBUG    | spider:get_shop_info:251 - Bach‘s Musical Instrument Shop已找到过，不在查找
+2024-01-20 12:39:53.345 | DEBUG    | spider:get_shop_info:251 - Music Dream已找到过，不在查找
+2024-01-20 12:39:53.405 | DEBUG    | spider:get_shop_info:251 - Haer Guitar Zone已找到过，不在查找
+2024-01-20 12:39:53.458 | DEBUG    | spider:get_shop_info:251 - Рок - хаус已找到过，不在查找
+2024-01-20 12:39:53.540 | DEBUG    | spider:get_shop_info:251 - iWALK已找到过，不在查找
+2024-01-20 12:39:53.590 | DEBUG    | spider:get_shop_info:251 - REKTR Official Store已找到过，不在查找
+2024-01-20 12:39:53.638 | DEBUG    | spider:get_shop_info:251 - Музыкальный Мир已找到过，不在查找
+2024-01-20 12:39:53.737 | DEBUG    | spider:find_shop:109 - 点击：БИГТВ77
+2024-01-20 12:39:56.608 | DEBUG    | spider:find_shop:130 - БИГТВ77 | https://www.ozon.ru/product/gitarnyy-protsessor-hotone-ampero-ii-stomp-1359352702/
+2024-01-20 12:39:59.626 | INFO     | spider:get_shop_info:253 - {'дом музыки': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335520175/', '1335520175'], 'Волшебный магазин Хогвартса': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335523973/', '1335523973'], 'Bach‘s Musical Instrument Shop': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335524313/', '1335524313'], 'Music Dream': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1246160940/', '1246160940'], 'Haer Guitar Zone': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1340741467/', '1340741467'], 'Рок - хаус': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1288937093/', '1288937093'], 'REKTR Official Store': ['https://www.ozon.ru/product/hotone-ampero-ii-stomp-tsifrovoy-protsessor-effektov-1307915167/', '1307915167'], 'iWALK': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1307719800/', '1307719800'], 'Музыкальный Мир': ['https://www.ozon.ru/product/sostavnye-effekty-hotone-ampero-ii-stomp-1335519432/', '1335519432'], 'БИГТВ77': ['https://www.ozon.ru/product/gitarnyy-protsessor-hotone-ampero-ii-stomp-1359352702/', '1359352702']}
+2024-01-20 12:40:07.040 | INFO     | complaint:_do_complaint:108 - 提交成功
+2024-01-20 12:40:14.518 | INFO     | complaint:_do_complaint:108 - 提交成功
+2024-01-20 12:40:21.688 | INFO     | complaint:_do_complaint:108 - 提交成功
+2024-01-20 12:40:28.148 | INFO     | complaint:_do_complaint:108 - 提交成功
+2024-01-20 12:40:36.116 | INFO     | complaint:_do_complaint:108 - 提交成功
+2024-01-20 12:40:45.273 | INFO     | complaint:_do_complaint:108 - 提交成功
+2024-01-20 12:40:52.754 | INFO     | complaint:_do_complaint:108 - 提交成功
+2024-01-20 12:41:00.444 | INFO     | complaint:_do_complaint:108 - 提交成功
+2024-01-20 12:41:06.934 | INFO     | complaint:_do_complaint:108 - 提交成功
+2024-01-20 12:41:14.780 | INFO     | complaint:_do_complaint:108 - 提交成功
+2024-01-20 12:41:16.695 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1356525140/
+2024-01-20 12:41:37.674 | DEBUG    | spider:find_shop:109 - 点击：xuridongsheng
+2024-01-20 12:41:41.550 | DEBUG    | spider:find_shop:130 - xuridongsheng | https://www.ozon.ru/product/muzykalnaya-shkatulka-na-elku-warmilife-rozhdestvenskaya-elka-s-dekorativnoy-podsvetkoy-1362524110/
+2024-01-20 12:41:44.563 | INFO     | spider:get_shop_info:253 - {'xuridongsheng': ['https://www.ozon.ru/product/muzykalnaya-shkatulka-na-elku-warmilife-rozhdestvenskaya-elka-s-dekorativnoy-podsvetkoy-1362524110/', '1362524110']}
+2024-01-20 12:41:53.053 | INFO     | complaint:_do_complaint:108 - 提交成功
+2024-01-20 12:41:55.081 | INFO     | complaint:complaintsAndSales:131 - 开始处理 https://www.ozon.ru/product/1356523897/
+2024-01-20 12:42:02.686 | ERROR    | complaint:complaintsAndSales:136 - 捕获到异常：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+ 异常类型：<class 'selenium.common.exceptions.NoSuchWindowException'> 异常详细信息：Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.225)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7B0F182B2+55298]
+	(No symbol) [0x00007FF7B0E85E02]
+	(No symbol) [0x00007FF7B0D405AB]
+	(No symbol) [0x00007FF7B0D20038]
+	(No symbol) [0x00007FF7B0DA6BC7]
+	(No symbol) [0x00007FF7B0DBA15F]
+	(No symbol) [0x00007FF7B0DA1E83]
+	(No symbol) [0x00007FF7B0D7670A]
+	(No symbol) [0x00007FF7B0D77964]
+	GetHandleVerifier [0x00007FF7B1290AAB+3694587]
+	GetHandleVerifier [0x00007FF7B12E728E+4048862]
+	GetHandleVerifier [0x00007FF7B12DF173+4015811]
+	GetHandleVerifier [0x00007FF7B0FB47D6+695590]
+	(No symbol) [0x00007FF7B0E90CE8]
+	(No symbol) [0x00007FF7B0E8CF34]
+	(No symbol) [0x00007FF7B0E8D062]
+	(No symbol) [0x00007FF7B0E7D3A3]
+	BaseThreadInitThunk [0x00007FFAE08C7344+20]
+	RtlUserThreadStart [0x00007FFAE21026B1+33]
+
+2024-01-21 12:26:50.919 | INFO     | __main__:<module>:32 - 当前路径：d:/work/Cross_border-e_commerce/kreslo1
+2024-01-21 17:53:55.451 | INFO     | __main__:<module>:32 - 当前路径：d:/work/Cross_border-e_commerce/kreslo1
+2024-01-21 17:54:41.601 | INFO     | __main__:<module>:32 - 当前路径：d:/work/Cross_border-e_commerce/kreslo1
+2024-01-21 17:55:26.631 | INFO     | __main__:<module>:32 - 当前路径：d:/work/Cross_border-e_commerce/kreslo1
+2024-01-21 17:56:03.658 | WARNING  | __main__:get_shop_info:273 - 验证未通过

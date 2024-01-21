@@ -60,10 +60,10 @@ class Complaint(SpiderShop):
             cls.click(el)
 
     @classmethod
-    def get_content(cls, other_code, my_code, url):
+    def get_content(cls, other_code, my_code, url, seller_name):
         content = f"""
 我举报卖家
-(卖家店铺名称)的产品 （код товара: {other_code}）
+({seller_name})的产品 （код товара: {other_code}）
 盗用我的商品（код товара: {my_code}） 。
 这种行为严重损害了我的利益，希望平台予以严厉打击！
 请查看所附的图片编辑器截图，
@@ -73,8 +73,44 @@ class Complaint(SpiderShop):
         return content
 
     @classmethod
-    def _do_complaint(cls, other_code, my_code, url, file=None):
-        content = cls.get_content(other_code, my_code, url)
+    def _do_complaint_1(cls, content, file=None):
+        cls.goto_complaint_page()
+        cls.create_application()
+
+        if select_obj_el := cls.is_find_element(By.XPATH, '//*[text()="请选择主题"]'):
+
+            cls.input_text(select_obj_el, '质量监管')
+            if el := cls.is_find_element(By.XPATH, '//*[text()="质量监管"]'):
+                cls.click(el)
+        if el := cls.is_find_element(By.XPATH, '//*[text()="请选择子主题"]'):
+            cls.input_text(el, '其他卖家违反平台规则')
+            if el := cls.is_find_element(By.XPATH, '//*[text()="其他卖家违反平台规则"]'):
+                cls.click(el)
+
+        if el := cls.is_find_element(By.XPATH, '//*[@placeholder="请描述您的问题"]'):
+            cls.input_text(el, content)
+
+        if file:
+            if upload_el := cls.is_find_element(By.XPATH, '//*[@type="file"]'):
+                if upload_el.is_enabled():
+                    upload_el.send_keys(file)
+
+                else:
+                    logger.error(r"没上传文件")
+                    return
+            else:
+                logger.error(r"没上传文件")
+                return
+
+        if el := cls.is_find_element(By.XPATH, '//*[text()="发送"]'):
+            cls.click(el)
+            logger.info(f"提交成功")
+        else:
+            logger.error(f"提交失败")
+
+    @classmethod
+    def _do_complaint(cls, other_code, my_code, url, seller_name, file=None):
+        content = cls.get_content(other_code, my_code, url, seller_name)
         cls.goto_complaint_page()
         cls.create_application()
 
@@ -112,14 +148,18 @@ class Complaint(SpiderShop):
     @classmethod
     def complaint(cls, url, file=None):
         # https://www.ozon.ru/product/kreslo-kachalka-ja012-90h90h68-sm-1323412451/
-        my_code = url
+        my_code = url.split('/')[-1]
         if _ := re.findall(r"sm-(\d+)", url):
             my_code = _[0]
         shop_name = cls.get_shop_info(url)
-        for _, (report_url, other_code) in shop_name.items():
-            cls._do_complaint(other_code, my_code, report_url)
+        if len(shop_name):
+            content = ""
+            for seller_name, (report_url, other_code) in shop_name.items():
+                content += cls.get_content(other_code, my_code, url, seller_name)
+            cls._do_complaint_1(content)
             
-        cls.driver.close()
+        # cls.driver.close()
+        cls.close()
 
 def complaintsAndSales(headers, delay):
     Ozinapi = OzonApi(headers)
@@ -128,11 +168,15 @@ def complaintsAndSales(headers, delay):
         productlist = Ozinapi.getTheProductList()
         for product in productlist:
             url = Ozinapi.getTheProductWebsite(product["offer_id"])
+            logger.info(f"开始处理 {url}")
             Complaint.complaint(url)
+        time.sleep(int(delay))
+        return True
     except Exception as e:
         logger.error(f"捕获到异常：{e} 异常类型：{type(e)} 异常详细信息：{str(e)}")
         
-    time.sleep(delay)
+        time.sleep(int(delay))
+        return False
 
 if __name__ == '__main__':
     url = 'https://www.ozon.ru/product/kreslo-kachalka-ja012-90h90h68-sm-1323412451/'
