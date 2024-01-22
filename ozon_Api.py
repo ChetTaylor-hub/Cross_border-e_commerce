@@ -53,24 +53,23 @@ class OzonApi():
         print(f"-------------total: {len(response.json()['result']['postings'])}-------------")
         for i in response.json()["result"]["postings"]:
             print(f"order: {i['order_id']}, status: {i['status']}, substatus: {i['substatus']}")
-        return response
+        return response.json()["result"]["postings"]
     
-    def SelectFromShipmentList(Self, response, substatus=""):
-        postings = []
+    def SelectFromShipmentList(self, postings, substatus=""):
+        subPostings = []
         # 筛选订单
-        for i in response.json()["result"]["postings"]:
-            if i["substatus"] == substatus:
-                postings.append(i)
+        for posting in postings:
+            if posting["substatus"] == substatus:
+                subPostings.append(posting)
             # print(i["posting_number"])
-        return postings
+        return subPostings
         
 
-    def ChatBuyersStart(self, response, ChatContent):
+    def ChatBuyersStart(self, postings):
         chat_ids = []
-        
-        posting_numbers = [posting["posting_number"] for posting in self.SelectFromShipmentList(response, ChatContent["substatus"])]
-
         url = "https://api-seller.ozon.ru/v1/chat/start"
+        
+        posting_numbers = [posting["posting_number"] for posting in postings]
 
         # 逐个创建聊天窗口，返回聊天窗口id号
         for posting_number in posting_numbers:

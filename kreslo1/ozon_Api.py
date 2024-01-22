@@ -163,6 +163,37 @@ class OzonApi():
         chat_ids = self.ChatBuyersStart(response, ChatContent)
         self.ChatBuyersSend(chat_ids, ChatContent["text"])
 
+    def listOfActivities(self):
+        url = "https://api-seller.ozon.ru/v1/actions"
+
+        response = requests.get(url, headers=self.headers)
+
+        return response.json()["result"]
+    
+    def aListOfParticipatingProducts(self, action_id):
+        url = "https://api-seller.ozon.ru/v1/actions/products"
+
+        application = {
+            "action_id": action_id,
+            # "limit": 100,
+            # "offset": 0
+        }
+
+        response = requests.post(url, headers=self.headers, json=application)
+
+        return response.json()["result"]["products"]
+    
+    def removeTheItemFromTheEvent(self, action_id, product_ids):
+        url = "https://api-seller.ozon.ru/v1/actions/products/deactivate"
+        application = {
+            "action_id": action_id,
+            "product_ids": product_ids
+        }
+
+        response = requests.post(url, headers=self.headers, json=application)
+
+        return response.json()["result"]
+
 def complaintsAndSales():
     Ozinapi = OzonApi(headers[2])
     while True:
@@ -306,12 +337,28 @@ headers = [
 ]
 
 
+def deleteAPromotionalItem():
+    ozonapi = OzonApi(headers[2])
+    result = ozonapi.listOfActivities()
+    for i in result:
+        if i["participating_products_count"] == 0:
+            print(f"活动id：{i['id']} 没有参加活动的商品")
+            continue
+        products = ozonapi.aListOfParticipatingProducts(i["id"])
+        product_ids = []
+        for product in products:
+            product_ids.append(product["id"])
+        result = ozonapi.removeTheItemFromTheEvent(i["id"], product_ids)
+        # logger.info(f"活动id：{i['id']} 已经删除了参加活动的商品，商品id：{result['product_ids']}, 拒绝删除的商品id：{result['rejected']}")
+        print(f"活动id：{i['id']} 已经删除了参加活动的商品，商品id：{result['product_ids']}, 拒绝删除的商品id：{result['rejected']}")
+        # ozonapi.removeTheItemFromTheEvent(i["id"])
+
 if __name__ == "__main__":
     # text = "Здравствуйте, уважаемый клиент, наш склад был разрушен во время недавнего землетрясения в Ганьсу, Китай.Поэтому мы не можем отправить вам товар.Пожалуйста, закажете товар в другом из наших магазинов, и мы предоставим вам скидку.Еще раз, я хотел бы выразить вам свои самые искренние извинения, ссылка приведена ниже："
-    # # OzonApiForcopy = OzonApiForCommodityConversion(headers[0])
+    # OzonApiForcopy = OzonApiForCommodityConversion(headers[0])
     # # OzonApiForcopy.run(headers[1], text)
 
-    # OzonApiaaa = OzonApi(headers[1])
+    deleteAPromotionalItem()
     # OzonApiaaa.getTheProductList()
 
-    complaintsAndSales()
+    
