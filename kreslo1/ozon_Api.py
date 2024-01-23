@@ -469,7 +469,7 @@ headers = [
 def updateProductInventory():
     # 更新商品库存
     ozonapi = OzonApi(headers[0])
-    # pd打开excel文件
+    # pd打开excel文件读取sheet
     df = pd.read_excel(r"D:\Downloads\stock-update-template.xlsx")
     # 获取A，B，D列的数据
     products = ozonapi.getTheProductList()
