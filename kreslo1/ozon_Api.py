@@ -11,7 +11,11 @@ class OzonApi():
         return self.headers
 
     def ShipmentList(self, status=""):
-        # 获取订单列表
+        """获取订单列表
+
+        Args:
+            status (str, optional): 订单状态. Defaults to "".
+        """        
         map = {
         "url": "https://api-seller.ozon.ru/v3/posting/fbs/list",
         "application": {
@@ -60,7 +64,16 @@ class OzonApi():
         return response
     
     def SelectFromShipmentList(Self, response, substatus=""):
-        # 从订单列表中筛选订单
+        """筛选订单
+
+        Args:
+            Self (_type_): _description_
+            response (html——respnose): 获取到的全部订单
+            substatus (str, optional): 订单状态. Defaults to "".
+
+        Returns:
+            list: 筛选后的订单
+        """        
         postings = []
         # 筛选订单
         for i in response.json()["result"]["postings"]:
@@ -452,28 +465,12 @@ headers = [
 ]
 
 
-def deleteAPromotionalItem():
-    # 删除所有促销活动中的商品
-    ozonapi = OzonApi(headers[2])
-    result = ozonapi.listOfActivities()
-    for i in result:
-        if i["participating_products_count"] == 0:
-            print(f"活动id：{i['id']} 没有参加活动的商品")
-            continue
-        products = ozonapi.aListOfParticipatingProducts(i["id"])
-        product_ids = []
-        for product in products:
-            product_ids.append(product["id"])
-        result = ozonapi.removeTheItemFromTheEvent(i["id"], product_ids)
-        # logger.info(f"活动id：{i['id']} 已经删除了参加活动的商品，商品id：{result['product_ids']}, 拒绝删除的商品id：{result['rejected']}")
-        print(f"活动id：{i['id']} 已经删除了参加活动的商品，商品id：{result['product_ids']}, 拒绝删除的商品id：{result['rejected']}")
-        # ozonapi.removeTheItemFromTheEvent(i["id"])
 
 def updateProductInventory():
     # 更新商品库存
     ozonapi = OzonApi(headers[0])
     # pd打开excel文件
-    df = pd.read_excel("stock-update-template.csv")
+    df = pd.read_excel(r"D:\Downloads\stock-update-template.xlsx")
     # 获取A，B，D列的数据
     products = ozonapi.getTheProductList()
     for product in products:

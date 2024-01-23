@@ -20,13 +20,11 @@ def register_passport(headers, delay):
             chat_id = ozonapi.ChatBuyersStart(posting)
             res = ozonapi.ChatBuyersSend(chat_id, text)
             logger_passport.info(f"货物号：{posting} 聊天标号：{chat_id} 发送消息：<{text}> {'成功' if res else '失败'}")
-        time.sleep(int(delay))
         return True
         
     except Exception as e:
         logger_passport.error(f"捕获到异常：{e} 异常类型：{type(e)}")
-
-        time.sleep(int(delay))
-
         return False
+    finally:
+        time.sleep(int(delay))
 

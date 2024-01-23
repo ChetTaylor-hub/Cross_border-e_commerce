@@ -47,11 +47,13 @@ class MainWindow(QMainWindow):
         self.collect_money_group = QGroupBox("催收任务")
         self.fill_passport_group = QGroupBox("填写护照任务")
         self.file_complaint_group = QGroupBox("投诉任务")
+        self.delete_promotional_item = QGroupBox("删除促销商品")
 
         # 创建标签
         self.collect_money_result_label = QLabel("结果将显示在这里")
         self.fill_passport_result_label = QLabel("结果将显示在这里")
         self.file_complaint_result_label = QLabel("结果将显示在这里")
+        self.delete_promotional_item_result_label = QLabel("结果将显示在这里")
 
         # 创建按钮
         self.start_collect_money_button = QPushButton("开始")
@@ -60,6 +62,8 @@ class MainWindow(QMainWindow):
         self.stop_fill_passport_button = QPushButton("停止")
         self.start_file_complaint_button = QPushButton("开始")
         self.stop_file_complaint_button = QPushButton("停止")
+        self.start_delete_promotional_item_button = QPushButton("开始")
+        self.stop_delete_promotional_item_button = QPushButton("停止")
 
         # 创建延时输入框，当没有输入时显示《请输入发送间隔》，当输入时显示输入的数字
         self.collect_money_delay = QLineEdit()
@@ -68,11 +72,14 @@ class MainWindow(QMainWindow):
         self.fill_passport_delay.setPlaceholderText("请输入发送间隔")
         self.file_complaint_delay = QLineEdit()
         self.file_complaint_delay.setPlaceholderText("请输入发送间隔")
+        self.delete_promotional_item_delay = QLineEdit()
+        self.delete_promotional_item_delay.setPlaceholderText("请输入发送间隔")
 
         # 确认按钮
         self.collect_money_info_confirm_button = QPushButton("确认")
         self.fill_passport_info_confirm_button = QPushButton("确认")
         self.file_complaint_info_confirm_button = QPushButton("确认")
+        self.delete_promotional_item_info_confirm_button = QPushButton("确认")
 
         # 重置按钮
         self.init_button = QPushButton("重置")
@@ -87,6 +94,7 @@ class MainWindow(QMainWindow):
         self.stop_fill_passport_button.clicked.connect(self.stop_fill_passport)
         self.start_file_complaint_button.clicked.connect(self.start_file_complaint)
         self.stop_file_complaint_button.clicked.connect(self.stop_file_complaint)
+        self.start_delete_promotional_item_button.clicked.connect(self.show_success_message)
         
         self.collect_money_info_confirm_button.clicked.connect(self.collect_money_info_confirm_input)
         self.fill_passport_info_confirm_button.clicked.connect(self.fill_passport_info_confirm_input)
@@ -99,9 +107,15 @@ class MainWindow(QMainWindow):
         self.stop_fill_passport_button.clicked.connect(self.show_success_message)
         self.start_file_complaint_button.clicked.connect(self.show_success_message)
         self.stop_file_complaint_button.clicked.connect(self.show_success_message)
+        self.start_delete_promotional_item_button.clicked.connect(self.show_success_message)
+        self.stop_delete_promotional_item_button.clicked.connect(self.show_success_message)
+
+        # 确认按钮链接到《点击成功槽函数》
         self.collect_money_info_confirm_button.clicked.connect(self.show_success_message)
         self.fill_passport_info_confirm_button.clicked.connect(self.show_success_message)
         self.file_complaint_info_confirm_button.clicked.connect(self.show_success_message)
+        self.delete_promotional_item_info_confirm_button.clicked.connect(self.show_success_message)
+        
 
         # 连接重置按钮有
         self.init_button.clicked.connect(self.init)
@@ -111,6 +125,7 @@ class MainWindow(QMainWindow):
         self.collect_money_thread = WorkerThread(collect_money, self.ClientId_input.text(), self.ApiKey_input.text())
         self.fill_passport_thread = WorkerThread(fill_passport, self.ClientId_input.text(), self.ApiKey_input.text())
         self.file_complaint_thread = WorkerThread(file_complaint, self.ClientId_input.text(), self.ApiKey_input.text())
+        self.delete_promotional_item_thread = WorkerThread(delete_promotional_item, self.ClientId_input.text(), self.ApiKey_input.text())
 
     def setup_layout(self):
         # 设置主布局
@@ -128,6 +143,10 @@ class MainWindow(QMainWindow):
         self.setup_task_layout(self.file_complaint_group, "投诉", self.file_complaint_result_label,
                                 self.start_file_complaint_button, self.stop_file_complaint_button, 
                                 self.file_complaint_delay, self.file_complaint_info_confirm_button)
+        
+        self.setup_task_layout(self.delete_promotional_item, "删除促销商品", self.delete_promotional_item_result_label,
+                                self.start_delete_promotional_item_button, self.stop_delete_promotional_item_button, 
+                                self.delete_promotional_item_delay, self.delete_promotional_item_info_confirm_button)
 
         # 添加任务到主布局
         main_layout.addWidget(self.ClientId_input)
@@ -135,6 +154,7 @@ class MainWindow(QMainWindow):
         main_layout.addWidget(self.collect_money_group)
         main_layout.addWidget(self.fill_passport_group)
         main_layout.addWidget(self.file_complaint_group)
+        main_layout.addWidget(self.delete_promotional_item)
         main_layout.addWidget(self.init_button)
         # main_layout.addWidget(self.confirm_button)
 
@@ -172,6 +192,8 @@ class MainWindow(QMainWindow):
         self.file_complaint_thread = None
         self.fill_passport_thread.stop()
         self.fill_passport_thread = None
+        self.delete_promotional_item_thread.stop()
+        self.delete_promotional_item_thread = None
 
     def collect_money_info_confirm_input(self):
         client_id = self.ClientId_input.text()
@@ -196,6 +218,15 @@ class MainWindow(QMainWindow):
         api_key = self.ApiKey_input.text()
         file_complaint_delay = self.file_complaint_delay.text()
 
+    def delete_promotional_item_info_confirm_input(self):
+        client_id = self.ClientId_input.text()
+        api_key = self.ApiKey_input.text()
+        delete_promotional_item_delay = self.delete_promotional_item_delay.text()
+
+        self.delete_promotional_item_thread = None
+        if not self.delete_promotional_item_thread:
+            self.delete_promotional_item_thread = WorkerThread(delete_promotional_item, client_id, api_key, delete_promotional_item_delay)
+
         # 释放线程对象，重新创建
         self.file_complaint_thread = None
         if not self.file_complaint_thread:
@@ -218,6 +249,12 @@ class MainWindow(QMainWindow):
 
     def stop_file_complaint(self):
         self.stop_task(self.file_complaint_thread)
+
+    def start_delete_promotional_item(self):
+        self.start_task(self.delete_promotional_item_thread, self.delete_promotional_item_result_label)
+
+    def stop_delete_promotional_item(self):
+        self.stop_task(self.delete_promotional_item_thread)
 
     def start_task(self, thread, result_label):
         # 启动任务线程

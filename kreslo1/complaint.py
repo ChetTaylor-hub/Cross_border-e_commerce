@@ -170,13 +170,12 @@ def complaintsAndSales(headers, delay):
             url = Ozinapi.getTheProductWebsite(product["offer_id"])
             logger.info(f"开始处理 {url}")
             Complaint.complaint(url)
-        time.sleep(int(delay))
         return True
     except Exception as e:
         logger.error(f"捕获到异常：{e} 异常类型：{type(e)} 异常详细信息：{str(e)}")
-        
-        time.sleep(int(delay))
         return False
+    finally:
+        time.sleep(int(delay))
 
 if __name__ == '__main__':
     url = 'https://www.ozon.ru/product/kreslo-kachalka-ja012-90h90h68-sm-1323412451/'
