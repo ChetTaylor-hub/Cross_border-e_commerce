@@ -1,4 +1,7 @@
 import requests
+import pandas as pd
+import openpyxl
+import time
 
 class OzonApi():
     def __init__(self, headers):
@@ -8,6 +11,7 @@ class OzonApi():
         return self.headers
 
     def ShipmentList(self, status=""):
+        # 获取订单列表
         map = {
         "url": "https://api-seller.ozon.ru/v3/posting/fbs/list",
         "application": {
@@ -56,6 +60,7 @@ class OzonApi():
         return response
     
     def SelectFromShipmentList(Self, response, substatus=""):
+        # 从订单列表中筛选订单
         postings = []
         # 筛选订单
         for i in response.json()["result"]["postings"]:
@@ -66,6 +71,7 @@ class OzonApi():
         
 
     def ChatBuyersStart(self, response, ChatContent):
+        # 创建聊天窗口
         chat_ids = []
         
         posting_numbers = [posting["posting_number"] for posting in self.SelectFromShipmentList(response, ChatContent["substatus"])]
@@ -86,6 +92,7 @@ class OzonApi():
         return chat_ids
 
     def ChatBuyersSend(self, chat_ids, text="no text"):
+        # 发送消息
         url = "https://api-seller.ozon.ru/v1/chat/send/message"
 
         for chat_id in chat_ids:
@@ -105,6 +112,7 @@ class OzonApi():
                     send_ret = True
 
     def chatHistory(self, chat_id):
+        # 获取聊天记录
         url = "https://api-seller.ozon.ru/v2/chat/history"
         applacation = {
             "chat_id": chat_id,
@@ -116,6 +124,7 @@ class OzonApi():
         return response.json()
     
     def getTheProductList(self):
+        # 获取商品列表
         url = "https://api-seller.ozon.ru/v2/product/list"
         application = {
             "filter": {
@@ -138,6 +147,7 @@ class OzonApi():
         return response.json()["result"]["items"]
     
     def getTheProductWebsite(self, offer_id):
+        # 获取商品网址
         url = "https://api-seller.ozon.ru/v2/product/info"
 
         application = {
@@ -164,6 +174,7 @@ class OzonApi():
         self.ChatBuyersSend(chat_ids, ChatContent["text"])
 
     def listOfActivities(self):
+        # 促销活动列表
         url = "https://api-seller.ozon.ru/v1/actions"
 
         response = requests.get(url, headers=self.headers)
@@ -171,6 +182,7 @@ class OzonApi():
         return response.json()["result"]
     
     def aListOfParticipatingProducts(self, action_id):
+        # 参与某促销活动的商品列表
         url = "https://api-seller.ozon.ru/v1/actions/products"
 
         application = {
@@ -184,6 +196,7 @@ class OzonApi():
         return response.json()["result"]["products"]
     
     def removeTheItemFromTheEvent(self, action_id, product_ids):
+        # 从促销活动中删除商品
         url = "https://api-seller.ozon.ru/v1/actions/products/deactivate"
         application = {
             "action_id": action_id,
@@ -193,8 +206,127 @@ class OzonApi():
         response = requests.post(url, headers=self.headers, json=application)
 
         return response.json()["result"]
+    
+    def updateYourInventory(self, offer_id, product_id, stock):
+        # 更新库存
+        url = "https://api-seller.ozon.ru/v1/product/import/stocks"
+
+        application = {
+            "stocks": [
+                {
+                    "offer_id": "PG-2404С1",
+                    "product_id": 55946,
+                    "stock": 4
+                }
+            ]
+        }
+
+        response = requests.post(url, headers=self.headers, json=application)
+        
+        return response.json()["result"]
+    
+    def updateTheNumberOfItemsInYourInventory(self, offer_id, product_id, stock, warehouse_id):
+        """_summary_
+
+        Args:
+            offer_id (string): _description_
+            product_id (int64): _description_
+            stock (int64): _description_
+            warehouse_id (int64): _description_
+
+        Returns:
+            list: 更新信息
+        """        
+        url = "https://api-seller.ozon.ru/v2/products/stocks"
+
+        application = {
+            "stocks": [
+                {
+                    "offer_id": offer_id,
+                    "product_id": product_id,
+                    "stock": stock,
+                    "warehouse_id": warehouse_id
+                }
+            ]
+        }
+
+        response = requests.post(url, headers=self.headers, json=application)
+        
+        return response.json()["result"]
+    
+    def updateYourInventory(self, offer_id, product_id, stock):
+        """_summary_
+
+        Args:
+            offer_id (string): _description_
+            product_id (int64): _description_
+            stock (int64): _description_
+
+        Returns:
+            list: 更新信息
+        """        
+        url = "https://api-seller.ozon.ru/v1/product/import/stocks"
+
+        application = {
+            "stocks": [
+                {
+                    "offer_id": offer_id,
+                    "product_id": product_id,
+                    "stock": stock
+                }
+            ]
+        }
+
+        response = requests.post(url, headers=self.headers, json=application)
+        
+        return response.json()["result"]
+    
+    def informationAboutTheNumberOfProducts(self, offer_id, product_id):
+        """ 获取商品库存信息
+
+        Args:
+            offer_id (string): 卖家系统中的商品编号是 — 商品代码
+            product_id (int64): 商品id
+
+        Returns:
+            list: 商品库存数量
+        """        
+        url = "https://api-seller.ozon.ru/v3/product/info/stocks"
+
+        application = {
+            "filter": {
+                "offer_id": [
+                    offer_id
+                ],
+                "product_id": [
+                    product_id
+                ],
+                "visibility": "ALL"
+            },
+            "last_id": "",
+            "limit": 1000
+        }
+
+        response = requests.post(url, headers=self.headers, json=application)
+
+        return response.json()["result"]["items"]
+    
+    def warehouseList(self):
+        """ 获取仓库列表
+
+        Returns:
+            list: 仓库列表
+        """
+        url = "https://api-seller.ozon.ru/v1/warehouse/list"
+
+        application = {}
+
+        response = requests.post(url, headers=self.headers, json=application)
+
+        return response.json()["result"]
 
 def complaintsAndSales():
+    # 投诉
     Ozinapi = OzonApi(headers[2])
     while True:
         productlist = Ozinapi.getTheProductList()
@@ -300,23 +432,6 @@ class OzonApiForCommodityConversion(OzonApi):
                     send_ret = True
 
 
-
-    def run(self, header, text="no text"):
-        print(f"{'-'*30}{self.getheader()} 开始发送提醒网址的信息{'-'*30}")
-        text = "Здравствуйте, уважаемый клиент, наш склад был разрушен во время недавнего землетрясения в Ганьсу, Китай.Поэтому мы не можем отправить вам товар.Пожалуйста, закажете товар в другом из наших магазинов, и мы предоставим вам скидку.Еще раз, я хотел бы выразить вам свои самые искренние извинения, ссылка приведена ниже："
-
-        infos, websites = self.getTheProductWebsite(header)
-        chat_ids = self.ChatBuyersStart(infos)
-
-        # 去除已发送的chat_id
-        for chat_id in chat_ids:
-            chat_history = self.chatHistory(chat_id)
-            for message in chat_history["messages"]:
-                if text in message["data"][0]:
-                    chat_ids.remove(chat_id)
-                    break
-        self.ChatBuyersSend(chat_ids, websites, text)
-
 url = "https://www.ozon.ru/product/1356525140/"
 
 
@@ -338,6 +453,7 @@ headers = [
 
 
 def deleteAPromotionalItem():
+    # 删除所有促销活动中的商品
     ozonapi = OzonApi(headers[2])
     result = ozonapi.listOfActivities()
     for i in result:
@@ -353,12 +469,28 @@ def deleteAPromotionalItem():
         print(f"活动id：{i['id']} 已经删除了参加活动的商品，商品id：{result['product_ids']}, 拒绝删除的商品id：{result['rejected']}")
         # ozonapi.removeTheItemFromTheEvent(i["id"])
 
+def updateProductInventory():
+    # 更新商品库存
+    ozonapi = OzonApi(headers[0])
+    # pd打开excel文件
+    df = pd.read_excel("stock-update-template.csv")
+    # 获取A，B，D列的数据
+    products = ozonapi.getTheProductList()
+    for product in products:
+        items = ozonapi.informationAboutTheNumberOfProducts(product["offer_id"], product["product_id"])
+        warehouses = ozonapi.warehouseList()
+        for warehouse in warehouses:
+            for stock in items[0]["stocks"]:
+                result = ozonapi.updateTheNumberOfItemsInYourInventory(product["offer_id"], product["product_id"], stock["present"], warehouse["warehouse_id"])
+                # result = ozonapi.updateYourInventory(product["offer_id"], product["product_id"], result[0]["stock"])
+                print(f"商品id：{product['offer_id']} 已经更新库存，库存数量：{stock}, 仓库id：{warehouse['warehouse_id']}, 仓库名称：{warehouse['name']}")
+
 if __name__ == "__main__":
     # text = "Здравствуйте, уважаемый клиент, наш склад был разрушен во время недавнего землетрясения в Ганьсу, Китай.Поэтому мы не можем отправить вам товар.Пожалуйста, закажете товар в другом из наших магазинов, и мы предоставим вам скидку.Еще раз, я хотел бы выразить вам свои самые искренние извинения, ссылка приведена ниже："
     # OzonApiForcopy = OzonApiForCommodityConversion(headers[0])
     # # OzonApiForcopy.run(headers[1], text)
 
-    deleteAPromotionalItem()
+    updateProductInventory()
     # OzonApiaaa.getTheProductList()
 
     
