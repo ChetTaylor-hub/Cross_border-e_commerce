@@ -27,10 +27,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-logger.add("log.log")
+logger.add("complaint.log", filter=lambda record: record["extra"].get("name") == "complaint")
+logger_complaint = logger.bind(name="complaint")
 cur_dir = os.path.dirname(__file__)
 
-logger.info(f"当前路径：{cur_dir}")
+logger_complaint.info(f"当前路径：{cur_dir}")
 
 
 class SpiderShop:
@@ -113,7 +114,7 @@ class SpiderShop:
         sid = None
         for i in range(3):
             if new_page_el := cls.is_find_element(by=By.XPATH, value=shop_el, timeout=0.5):
-                logger.debug(f"点击：{name}")
+                logger_complaint.debug(f"点击：{name}")
                 cls.click(new_page_el)
                 # //*[@id="layoutPage"]/div[1]/div[4]/div[2]/div/div/div[2]/span
                 a = cls.is_find_element(by=By.XPATH,
@@ -122,7 +123,7 @@ class SpiderShop:
                 cur_url = cls.driver.current_url
 
                 if cur_url == url or cur_url in list(cls.shop_name.values()):
-                    logger.debug("向下滑动1")
+                    logger_complaint.debug("向下滑动1")
                     scroll_script = f"window.scrollTo(0, 0);"
                     cls.driver.execute_script(scroll_script)
 
@@ -134,7 +135,7 @@ class SpiderShop:
                                             value='//*[@id="layoutPage"]/div[1]/div[4]/div[2]/div/div/div[2]/span'):
                     sid = _.text.strip().split(":")[-1].split()
                     sid = sid[0] if sid else None
-                logger.debug(f"{name} | {cur_url}")
+                logger_complaint.debug(f"{name} | {cur_url}")
                 cls.shop_name[name] = [cur_url, sid]
                 cls.save_csv([sid, cur_url])
                 time.sleep(3)
@@ -144,7 +145,7 @@ class SpiderShop:
                 scroll_script = f"window.scrollTo(0, {1000 + i * 300});"
                 cls.driver.execute_script(scroll_script)
         else:
-            logger.debug(f"{name}没找到")
+            logger_complaint.debug(f"{name}没找到")
 
     @classmethod
     def veify_api(cls):
@@ -178,7 +179,7 @@ class SpiderShop:
                 result = cls.matchimg(src_image, obj_image)
                 print(result.get("result"))
                 if result:
-                    logger.info(f"开始点击验证")
+                    logger_complaint.info(f"开始点击验证")
                     pyautogui.click(*result.get("result"))
                     verify_cnt += 1
                     if verify_cnt >= 2:
@@ -261,9 +262,9 @@ class SpiderShop:
             page_text = cls.driver.page_source
             if "确认您是真人" in page_text or "检查站点连接是否安全" in page_text or "请稍候" in page_text:
                 if cls.verify():
-                    logger.debug("验证通过")
+                    logger_complaint.debug("验证通过")
                 else:
-                    logger.warning("验证未通过")
+                    logger_complaint.warning("验证未通过")
                 cls.close()
                 continue
             # 查看有几个
@@ -302,9 +303,9 @@ class SpiderShop:
                         cls.find_shop(url, name, new_page)
                         break
                     else:
-                        logger.debug(f"{name}已找到过，不在查找")
+                        logger_complaint.debug(f"{name}已找到过，不在查找")
 
-            logger.info(cls.shop_name)
+            logger_complaint.info(cls.shop_name)
             if len(tmp_name) == len(cls.shop_name):
                 break
         return cls.shop_name

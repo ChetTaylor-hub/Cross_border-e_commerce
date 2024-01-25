@@ -11,7 +11,8 @@ from spider import SpiderShop
 
 from ozon_Api import OzonApi
 
-logger.add("log.log")
+logger.add("complaint.log", filter=lambda record: record["extra"].get("name") == "complaint")
+logger_complaint = logger.bind(name="complaint")
 
 
 class Complaint(SpiderShop):
@@ -97,17 +98,17 @@ class Complaint(SpiderShop):
                     upload_el.send_keys(file)
 
                 else:
-                    logger.error(r"没上传文件")
+                    logger_complaint.error(r"没上传文件")
                     return
             else:
-                logger.error(r"没上传文件")
+                logger_complaint.error(r"没上传文件")
                 return
 
         if el := cls.is_find_element(By.XPATH, '//*[text()="发送"]'):
             cls.click(el)
-            logger.info(f"提交成功")
+            logger_complaint.info(f"提交成功")
         else:
-            logger.error(f"提交失败")
+            logger_complaint.error(f"提交失败")
 
     @classmethod
     def _do_complaint(cls, other_code, my_code, url, seller_name, file=None):
@@ -134,17 +135,17 @@ class Complaint(SpiderShop):
                     upload_el.send_keys(file)
 
                 else:
-                    logger.error(r"没上传文件")
+                    logger_complaint.error(r"没上传文件")
                     return
             else:
-                logger.error(r"没上传文件")
+                logger_complaint.error(r"没上传文件")
                 return
 
         if el := cls.is_find_element(By.XPATH, '//*[text()="发送"]'):
             cls.click(el)
-            logger.info(f"提交成功")
+            logger_complaint.info(f"提交成功")
         else:
-            logger.error(f"提交失败")
+            logger_complaint.error(f"提交失败")
 
     @classmethod
     def complaint(cls, url, file=None):
@@ -170,13 +171,13 @@ def complaintsAndSales(headers, delay):
         for product in productlist:
             try:
                 url = Ozinapi.getTheProductWebsite(product["offer_id"])
-                logger.info(f"开始处理 {url}")
+                logger_complaint.info(f"开始处理 {url}")
                 Complaint.complaint(url)
             except NoSuchWindowException:
                     continue
         return True
     except Exception as e:
-        logger.error(f"捕获到异常：{e} 异常类型：{type(e)} 异常详细信息：{str(e)}")
+        logger_complaint.error(f"捕获到异常：{e} 异常类型：{type(e)} 异常详细信息：{str(e)}")
         return False
     finally:
         time.sleep(int(delay))
