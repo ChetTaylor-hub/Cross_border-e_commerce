@@ -5,6 +5,7 @@ from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchWindowException
 from loguru import logger
 from spider import SpiderShop
 
@@ -167,9 +168,12 @@ def complaintsAndSales(headers, delay):
     try:
         productlist = Ozinapi.getTheProductList()
         for product in productlist:
-            url = Ozinapi.getTheProductWebsite(product["offer_id"])
-            logger.info(f"开始处理 {url}")
-            Complaint.complaint(url)
+            try:
+                url = Ozinapi.getTheProductWebsite(product["offer_id"])
+                logger.info(f"开始处理 {url}")
+                Complaint.complaint(url)
+            except NoSuchWindowException:
+                    continue
         return True
     except Exception as e:
         logger.error(f"捕获到异常：{e} 异常类型：{type(e)} 异常详细信息：{str(e)}")
@@ -178,6 +182,19 @@ def complaintsAndSales(headers, delay):
         time.sleep(int(delay))
 
 if __name__ == '__main__':
-    url = 'https://www.ozon.ru/product/kreslo-kachalka-ja012-90h90h68-sm-1323412451/'
-    url = "https://www.ozon.ru/product/kreslo-kachalka-ja012-90h90h68-sm-1323412451/"
-    Complaint.complaint(url, r"")
+    headers = [
+        {
+            "Client-Id": "1499102",
+            "Api-Key": "d8c89da0-9caa-4d70-b034-54a2f21c94a2",
+        },
+        {
+            "Client-Id": "1590307",
+            "Api-Key": "6e3bcfea-5b59-4997-a3ad-9c24a5611ccd",
+        },
+        {
+            "Client-Id": "1549760",
+            "Api-Key": "dd1fc6b2-ab2f-4f4c-8f3f-de0c35576f18"
+
+        }
+    ]
+    complaintsAndSales(headers[0], 10)

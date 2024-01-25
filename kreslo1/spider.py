@@ -16,7 +16,6 @@ import aircv as ac
 import cv2
 import numpy as np
 import pyautogui
-import requests
 from PIL import ImageGrab
 from loguru import logger
 from selenium import webdriver
@@ -312,6 +311,7 @@ class SpiderShop:
 
 
 if __name__ == '__main__':
-    url = "https://seller.ozon.ru/app/messenger?group=customers_v2&locale=zh-Hans"
-    url = 'https://www.ozon.ru/product/kreslo-kachalka-ja012-90h90h68-sm-1323412451/'
-    SpiderShop.get_shop_info(url)
+    # url = "https://seller.ozon.ru/app/messenger?group=customers_v2&locale=zh-Hans"
+    # url = 'https://www.ozon.ru/product/kreslo-kachalka-ja012-90h90h68-sm-1323412451/'
+    # SpiderShop.get_shop_info(url)
+    SpiderShop.init_driver()

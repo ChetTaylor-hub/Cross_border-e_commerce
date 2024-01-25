@@ -1,3 +1,11 @@
+'''
+Author: TaoChen 2575394301@qq.com
+Date: 2024-01-23 16:31:10
+LastEditors: TaoChen 2575394301@qq.com
+LastEditTime: 2024-01-25 14:10:24
+FilePath: \kreslo1\promotional.py
+Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+'''
 from ozon_Api import OzonApi
 from loguru import logger
 import time
@@ -21,8 +29,7 @@ def deleteAPromotionalItem(headers, delay):
                 product_ids.append(product["id"])
             result = ozonapi.removeTheItemFromTheEvent(i["id"], product_ids)
             logger_passport.info(f"活动id：{i['id']} 已经删除了参加活动的商品，商品id：{result['product_ids']}, 拒绝删除的商品id：{result['rejected']}")
-            return True
-            # ozonapi.removeTheItemFromTheEvent(i["id"])
+        return True
     except Exception as e:
         logger_passport.error(f"捕获到异常：{e} 异常类型：{type(e)}")
         return False

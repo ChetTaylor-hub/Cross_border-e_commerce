@@ -238,7 +238,7 @@ class OzonApi():
         
         return response.json()["result"]
     
-    def updateTheNumberOfItemsInYourInventory(self, offer_id, product_id, stock, warehouse_id):
+    def updateTheNumberOfItemsInYourInventory(self, stocks):
         """_summary_
 
         Args:
@@ -253,14 +253,7 @@ class OzonApi():
         url = "https://api-seller.ozon.ru/v2/products/stocks"
 
         application = {
-            "stocks": [
-                {
-                    "offer_id": offer_id,
-                    "product_id": product_id,
-                    "stock": stock,
-                    "warehouse_id": warehouse_id
-                }
-            ]
+            "stocks": stocks
         }
 
         response = requests.post(url, headers=self.headers, json=application)
@@ -465,22 +458,6 @@ headers = [
 ]
 
 
-
-def updateProductInventory():
-    # 更新商品库存
-    ozonapi = OzonApi(headers[0])
-    # pd打开excel文件
-    df = pd.read_excel(r"D:\Downloads\stock-update-template.xlsx")
-    # 获取A，B，D列的数据
-    products = ozonapi.getTheProductList()
-    for product in products:
-        items = ozonapi.informationAboutTheNumberOfProducts(product["offer_id"], product["product_id"])
-        warehouses = ozonapi.warehouseList()
-        for warehouse in warehouses:
-            for stock in items[0]["stocks"]:
-                result = ozonapi.updateTheNumberOfItemsInYourInventory(product["offer_id"], product["product_id"], stock["present"], warehouse["warehouse_id"])
-                # result = ozonapi.updateYourInventory(product["offer_id"], product["product_id"], result[0]["stock"])
-                print(f"商品id：{product['offer_id']} 已经更新库存，库存数量：{stock}, 仓库id：{warehouse['warehouse_id']}, 仓库名称：{warehouse['name']}")
 
 if __name__ == "__main__":
     # text = "Здравствуйте, уважаемый клиент, наш склад был разрушен во время недавнего землетрясения в Ганьсу, Китай.Поэтому мы не можем отправить вам товар.Пожалуйста, закажете товар в другом из наших магазинов, и мы предоставим вам скидку.Еще раз, я хотел бы выразить вам свои самые искренние извинения, ссылка приведена ниже："

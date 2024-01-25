@@ -6,6 +6,8 @@ from PyQt5.QtCore import QThread, pyqtSignal, Qt
 from passport import register_passport
 from complaint import complaintsAndSales
 from pickup import urgePickUp
+from promotional import deleteAPromotionalItem
+from update import updateProductInventory
 
 class WorkerThread(QThread):
     task_completed = pyqtSignal(str)
@@ -48,12 +50,14 @@ class MainWindow(QMainWindow):
         self.fill_passport_group = QGroupBox("填写护照任务")
         self.file_complaint_group = QGroupBox("投诉任务")
         self.delete_promotional_item = QGroupBox("删除促销商品")
+        self.update_product_inventory = QGroupBox("更新商品库存")
 
         # 创建标签
         self.collect_money_result_label = QLabel("结果将显示在这里")
         self.fill_passport_result_label = QLabel("结果将显示在这里")
         self.file_complaint_result_label = QLabel("结果将显示在这里")
         self.delete_promotional_item_result_label = QLabel("结果将显示在这里")
+        self.update_product_inventory_result_label = QLabel("结果将显示在这里")
 
         # 创建按钮
         self.start_collect_money_button = QPushButton("开始")
@@ -64,6 +68,8 @@ class MainWindow(QMainWindow):
         self.stop_file_complaint_button = QPushButton("停止")
         self.start_delete_promotional_item_button = QPushButton("开始")
         self.stop_delete_promotional_item_button = QPushButton("停止")
+        self.start_update_product_inventory_button = QPushButton("开始")
+        self.stop_update_product_inventory_button = QPushButton("停止")
 
         # 创建延时输入框，当没有输入时显示《请输入发送间隔》，当输入时显示输入的数字
         self.collect_money_delay = QLineEdit()
@@ -74,12 +80,15 @@ class MainWindow(QMainWindow):
         self.file_complaint_delay.setPlaceholderText("请输入发送间隔")
         self.delete_promotional_item_delay = QLineEdit()
         self.delete_promotional_item_delay.setPlaceholderText("请输入发送间隔")
+        self.update_product_inventory_delay = QLineEdit()
+        self.update_product_inventory_delay.setPlaceholderText("请输入发送间隔")
 
         # 确认按钮
         self.collect_money_info_confirm_button = QPushButton("确认")
         self.fill_passport_info_confirm_button = QPushButton("确认")
         self.file_complaint_info_confirm_button = QPushButton("确认")
         self.delete_promotional_item_info_confirm_button = QPushButton("确认")
+        self.update_product_inventory_info_confirm_button = QPushButton("确认")
 
         # 重置按钮
         self.init_button = QPushButton("重置")
@@ -87,18 +96,24 @@ class MainWindow(QMainWindow):
         # 设置布局
         self.setup_layout()
 
-        # 连接按钮与函数
+        # 连接按钮与指定的函数
         self.start_collect_money_button.clicked.connect(self.start_collect_money)
         self.stop_collect_money_button.clicked.connect(self.stop_collect_money)
         self.start_fill_passport_button.clicked.connect(self.start_fill_passport)
         self.stop_fill_passport_button.clicked.connect(self.stop_fill_passport)
         self.start_file_complaint_button.clicked.connect(self.start_file_complaint)
         self.stop_file_complaint_button.clicked.connect(self.stop_file_complaint)
-        self.start_delete_promotional_item_button.clicked.connect(self.show_success_message)
+        self.start_delete_promotional_item_button.clicked.connect(self.start_delete_promotional_item)
+        self.stop_delete_promotional_item_button.clicked.connect(self.stop_delete_promotional_item)
+        self.start_update_product_inventory_button.clicked.connect(self.start_update_product_inventory)
+        self.stop_update_product_inventory_button.clicked.connect(self.stop_update_product_inventory)
+
         
         self.collect_money_info_confirm_button.clicked.connect(self.collect_money_info_confirm_input)
         self.fill_passport_info_confirm_button.clicked.connect(self.fill_passport_info_confirm_input)
         self.file_complaint_info_confirm_button.clicked.connect(self.file_complaint_info_confirm_input)
+        self.delete_promotional_item_info_confirm_button.clicked.connect(self.delete_promotional_item_info_confirm_input)
+        self.update_product_inventory_info_confirm_button.clicked.connect(self.update_product_inventory_info_confirm_input)
 
         # 连接按钮到《点击成功槽函数》
         self.start_collect_money_button.clicked.connect(self.show_success_message)
@@ -109,12 +124,15 @@ class MainWindow(QMainWindow):
         self.stop_file_complaint_button.clicked.connect(self.show_success_message)
         self.start_delete_promotional_item_button.clicked.connect(self.show_success_message)
         self.stop_delete_promotional_item_button.clicked.connect(self.show_success_message)
+        self.start_update_product_inventory_button.clicked.connect(self.show_success_message)
+        self.stop_update_product_inventory_button.clicked.connect(self.show_success_message)
 
         # 确认按钮链接到《点击成功槽函数》
         self.collect_money_info_confirm_button.clicked.connect(self.show_success_message)
         self.fill_passport_info_confirm_button.clicked.connect(self.show_success_message)
         self.file_complaint_info_confirm_button.clicked.connect(self.show_success_message)
         self.delete_promotional_item_info_confirm_button.clicked.connect(self.show_success_message)
+        self.update_product_inventory_info_confirm_button.clicked.connect(self.show_success_message)
         
 
         # 连接重置按钮有
@@ -126,6 +144,7 @@ class MainWindow(QMainWindow):
         self.fill_passport_thread = WorkerThread(fill_passport, self.ClientId_input.text(), self.ApiKey_input.text())
         self.file_complaint_thread = WorkerThread(file_complaint, self.ClientId_input.text(), self.ApiKey_input.text())
         self.delete_promotional_item_thread = WorkerThread(delete_promotional_item, self.ClientId_input.text(), self.ApiKey_input.text())
+        self.update_product_inventory_thread = WorkerThread(update_product_inventory, self.ClientId_input.text(), self.ApiKey_input.text())
 
     def setup_layout(self):
         # 设置主布局
@@ -147,6 +166,10 @@ class MainWindow(QMainWindow):
         self.setup_task_layout(self.delete_promotional_item, "删除促销商品", self.delete_promotional_item_result_label,
                                 self.start_delete_promotional_item_button, self.stop_delete_promotional_item_button, 
                                 self.delete_promotional_item_delay, self.delete_promotional_item_info_confirm_button)
+        
+        self.setup_task_layout(self.update_product_inventory, "更新商品库存", self.update_product_inventory_result_label,
+                                self.start_update_product_inventory_button, self.stop_update_product_inventory_button, 
+                                self.update_product_inventory_delay, self.update_product_inventory_info_confirm_button)
 
         # 添加任务到主布局
         main_layout.addWidget(self.ClientId_input)
@@ -155,6 +178,7 @@ class MainWindow(QMainWindow):
         main_layout.addWidget(self.fill_passport_group)
         main_layout.addWidget(self.file_complaint_group)
         main_layout.addWidget(self.delete_promotional_item)
+        main_layout.addWidget(self.update_product_inventory)
         main_layout.addWidget(self.init_button)
         # main_layout.addWidget(self.confirm_button)
 
@@ -218,6 +242,10 @@ class MainWindow(QMainWindow):
         api_key = self.ApiKey_input.text()
         file_complaint_delay = self.file_complaint_delay.text()
 
+        self.file_complaint_thread = None
+        if not self.file_complaint_thread:
+            self.file_complaint_thread = WorkerThread(file_complaint, client_id, api_key, file_complaint_delay)
+
     def delete_promotional_item_info_confirm_input(self):
         client_id = self.ClientId_input.text()
         api_key = self.ApiKey_input.text()
@@ -227,10 +255,14 @@ class MainWindow(QMainWindow):
         if not self.delete_promotional_item_thread:
             self.delete_promotional_item_thread = WorkerThread(delete_promotional_item, client_id, api_key, delete_promotional_item_delay)
 
-        # 释放线程对象，重新创建
-        self.file_complaint_thread = None
-        if not self.file_complaint_thread:
-            self.file_complaint_thread = WorkerThread(file_complaint, client_id, api_key, file_complaint_delay)
+    def update_product_inventory_info_confirm_input(self):
+        client_id = self.ClientId_input.text()
+        api_key = self.ApiKey_input.text()
+        update_product_inventory_delay = self.update_product_inventory_delay.text()
+
+        self.update_product_inventory_thread = None
+        if not self.update_product_inventory_thread:
+            self.update_product_inventory_thread = WorkerThread(update_product_inventory, client_id, api_key, update_product_inventory_delay)
 
     def start_collect_money(self):
         self.start_task(self.collect_money_thread, self.collect_money_result_label)
@@ -256,6 +288,12 @@ class MainWindow(QMainWindow):
     def stop_delete_promotional_item(self):
         self.stop_task(self.delete_promotional_item_thread)
 
+    def start_update_product_inventory(self):
+        self.start_task(self.update_product_inventory_thread, self.update_product_inventory_result_label)
+
+    def stop_update_product_inventory(self):
+        self.stop_task(self.update_product_inventory_thread)
+
     def start_task(self, thread, result_label):
         # 启动任务线程
         if not thread.isRunning():
@@ -277,7 +315,6 @@ def collect_money(*args, **kwarg):
         "Api-Key": args[1]
     }
     delay = args[2]
-    runing = args[3]
     res = urgePickUp(headers, delay)
     print("执行催收操作")
     if res:
@@ -311,6 +348,36 @@ def file_complaint(*args, **kwarg):
     delay = args[2]
     res = complaintsAndSales(headers, delay)
     print("执行投诉操作")
+    if res:
+        return f"运行成功，可以点击停止暂停，暂停后点击开始继续，如果想要修改配置，请先点击停止，修改相应参数后点击确认在点击开始"
+    return f"运行失败，输入的参数有误，重新点击停止->确认->开始"
+
+def delete_promotional_item(*args, **kwarg):
+    # 实现删除促销商品功能的函数，使用传递的参数
+    res = False
+
+    headers = {
+        "Client-Id": args[0],
+        "Api-Key": args[1]
+    }
+    delay = args[2]
+    res = deleteAPromotionalItem(headers, delay)
+    print("执行删除促销商品操作")
+    if res:
+        return f"运行成功，可以点击停止暂停，暂停后点击开始继续，如果想要修改配置，请先点击停止，修改相应参数后点击确认在点击开始"
+    return f"运行失败，输入的参数有误，重新点击停止->确认->开始"
+
+def update_product_inventory(*args, **kwarg):
+    # 实现更新商品库存功能的函数，使用传递的参数
+    res = False
+
+    headers = {
+        "Client-Id": args[0],
+        "Api-Key": args[1]
+    }
+    delay = args[2]
+    res = updateProductInventory(headers, delay)
+    print("执行更新商品库存操作")
     if res:
         return f"运行成功，可以点击停止暂停，暂停后点击开始继续，如果想要修改配置，请先点击停止，修改相应参数后点击确认在点击开始"
     return f"运行失败，输入的参数有误，重新点击停止->确认->开始"
