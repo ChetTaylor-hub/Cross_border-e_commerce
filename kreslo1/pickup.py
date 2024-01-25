@@ -27,7 +27,7 @@ def urgePickUp(headers, delay):
             res = ozonapi.ChatBuyersSend(chat_id, text)
             logger_pickup.info(f"货物号：{posting} 聊天标号：{chat_id} 发送消息：<{text}> {'成功' if res else '失败'}")
         return True
-    except Exception as e:
+    except Exception as e: 
         logger_pickup.error(f"捕获到异常：{e} 异常类型：{type(e)}")
         return False
     finally:

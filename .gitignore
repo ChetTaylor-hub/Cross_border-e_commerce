@@ -1,6 +1,9 @@
 .vscode
 *.txt
 *.csv
+*.log
+*.xlsx
+__pycache__
 
 # Ignore all files in the build/ directory
 build/
