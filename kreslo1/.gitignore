@@ -3,6 +3,9 @@ __pycache__
 *.log
 *.csv
 *.spec
+*.png
+*.jpg
+*.exe
 
 # 文件夹
 bulid/

@@ -28,3 +28,24 @@ def register_passport(headers, delay):
     finally:
         time.sleep(int(delay))
 
+if __name__ == "__main__":
+    headers = [
+        {
+            "Client-Id": "1499102",
+            "Api-Key": "d8c89da0-9caa-4d70-b034-54a2f21c94a2",
+        },
+        {
+            "Client-Id": "1590307",
+            "Api-Key": "6e3bcfea-5b59-4997-a3ad-9c24a5611ccd",
+        },
+        {
+            "Client-Id": "1549760",
+            "Api-Key": "dd1fc6b2-ab2f-4f4c-8f3f-de0c35576f18"
+            
+        }
+    ]
+    delay = 1
+    while True:
+        register_passport(headers[0], delay)
+        # time.sleep(60)
+

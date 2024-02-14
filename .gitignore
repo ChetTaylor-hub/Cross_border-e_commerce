@@ -4,6 +4,11 @@
 *.log
 *.xlsx
 __pycache__
+*.png
+*.jpg
+*.exe
+*.rar
+*.pkl
 
 # Ignore all files in the build/ directory
 build/
