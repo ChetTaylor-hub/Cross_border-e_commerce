@@ -1,6 +1,6 @@
 import sys
 import time
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QPushButton, QLineEdit, QHBoxLayout, QGroupBox, QMessageBox
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QPushButton, QLineEdit, QHBoxLayout, QGroupBox, QMessageBox, QFileDialog, QTabWidget
 from PyQt5.QtCore import QThread, pyqtSignal, Qt 
 
 from passport import register_passport
@@ -8,6 +8,8 @@ from complaint import complaintsAndSales
 from pickup import urgePickUp
 from promotional import deleteAPromotionalItem
 from update import updateProductInventory
+
+from spider import SpiderShop
 
 class WorkerThread(QThread):
     task_completed = pyqtSignal(str)
@@ -23,8 +25,6 @@ class WorkerThread(QThread):
         while self.running:
             result = self.task_function(*self.args, **self.kwargs)
             self.task_completed.emit(result)
-
-            time.sleep(1)  # 模拟任务执行，每隔1秒发送一次结果
 
     def stop(self):
         self.running = False
@@ -73,15 +73,15 @@ class MainWindow(QMainWindow):
 
         # 创建延时输入框，当没有输入时显示《请输入发送间隔》，当输入时显示输入的数字
         self.collect_money_delay = QLineEdit()
-        self.collect_money_delay.setPlaceholderText("请输入发送间隔")
+        self.collect_money_delay.setPlaceholderText("请输入发送间隔，单位：s")
         self.fill_passport_delay = QLineEdit()
-        self.fill_passport_delay.setPlaceholderText("请输入发送间隔")
+        self.fill_passport_delay.setPlaceholderText("请输入发送间隔，单位：s")
         self.file_complaint_delay = QLineEdit()
-        self.file_complaint_delay.setPlaceholderText("请输入发送间隔")
+        self.file_complaint_delay.setPlaceholderText("请输入发送间隔，单位：s")
         self.delete_promotional_item_delay = QLineEdit()
-        self.delete_promotional_item_delay.setPlaceholderText("请输入发送间隔")
+        self.delete_promotional_item_delay.setPlaceholderText("请输入发送间隔，单位：s")
         self.update_product_inventory_delay = QLineEdit()
-        self.update_product_inventory_delay.setPlaceholderText("请输入发送间隔")
+        self.update_product_inventory_delay.setPlaceholderText("请输入发送间隔，单位：s")
 
         # 确认按钮
         self.collect_money_info_confirm_button = QPushButton("确认")
@@ -89,6 +89,19 @@ class MainWindow(QMainWindow):
         self.file_complaint_info_confirm_button = QPushButton("确认")
         self.delete_promotional_item_info_confirm_button = QPushButton("确认")
         self.update_product_inventory_info_confirm_button = QPushButton("确认")
+
+        # 在你的初始化函数中创建按钮
+        self.file_name = None
+        self.select_excel_button = QPushButton("选择Excel文件")
+        self.select_excel_button.clicked.connect(self.select_excel_file)
+
+        # 开启浏览器
+        self.spider_shop_button = QPushButton("开启浏览器")
+        self.spider_shop_button.clicked.connect(self.spider_shop)
+
+        # 手动验证ozon网站
+        self.verify_ozon_button = QPushButton("验证ozon网站")
+        self.verify_ozon_button.clicked.connect(self.verify_ozon)
 
         # 重置按钮
         self.init_button = QPushButton("重置")
@@ -147,8 +160,18 @@ class MainWindow(QMainWindow):
         self.update_product_inventory_thread = WorkerThread(update_product_inventory, self.ClientId_input.text(), self.ApiKey_input.text())
 
     def setup_layout(self):
+        # 创建一个标签页部件
+        tab_widget = QTabWidget()
+
         # 设置主布局
-        main_layout = QVBoxLayout()
+        main_tab = QVBoxLayout()
+
+        # 设置次级布局
+        collect_money_layout = QVBoxLayout()
+        fill_passport_layout = QVBoxLayout()
+        file_complaint_layout = QVBoxLayout()
+        delete_promotional_item_layout = QVBoxLayout()
+        update_product_inventory_layout = QVBoxLayout()
 
         # 设置每个任务的布局
         self.setup_task_layout(self.collect_money_group, "催收", self.collect_money_result_label,
@@ -161,7 +184,8 @@ class MainWindow(QMainWindow):
 
         self.setup_task_layout(self.file_complaint_group, "投诉", self.file_complaint_result_label,
                                 self.start_file_complaint_button, self.stop_file_complaint_button, 
-                                self.file_complaint_delay, self.file_complaint_info_confirm_button)
+                                self.file_complaint_delay, self.file_complaint_info_confirm_button,
+                                self.spider_shop_button, self.verify_ozon_button)
         
         self.setup_task_layout(self.delete_promotional_item, "删除促销商品", self.delete_promotional_item_result_label,
                                 self.start_delete_promotional_item_button, self.stop_delete_promotional_item_button, 
@@ -169,17 +193,25 @@ class MainWindow(QMainWindow):
         
         self.setup_task_layout(self.update_product_inventory, "更新商品库存", self.update_product_inventory_result_label,
                                 self.start_update_product_inventory_button, self.stop_update_product_inventory_button, 
-                                self.update_product_inventory_delay, self.update_product_inventory_info_confirm_button)
+                                self.update_product_inventory_delay, self.update_product_inventory_info_confirm_button,
+                                self.select_excel_button)
 
         # 添加任务到主布局
         main_layout.addWidget(self.ClientId_input)
         main_layout.addWidget(self.ApiKey_input)
-        main_layout.addWidget(self.collect_money_group)
-        main_layout.addWidget(self.fill_passport_group)
-        main_layout.addWidget(self.file_complaint_group)
-        main_layout.addWidget(self.delete_promotional_item)
-        main_layout.addWidget(self.update_product_inventory)
+        # main_layout.addWidget(self.collect_money_group)
+        # main_layout.addWidget(self.fill_passport_group)
+        # main_layout.addWidget(self.file_complaint_group)
+        # main_layout.addWidget(self.delete_promotional_item)
+        # main_layout.addWidget(self.update_product_inventory)
         main_layout.addWidget(self.init_button)
+
+        # 添加任务到次级布局
+        collect_money_layout.addWidget(self.collect_money_group)
+        fill_passport_layout.addWidget(self.fill_passport_group)
+        file_complaint_layout.addWidget(self.file_complaint_group)
+        delete_promotional_item_layout.addWidget(self.delete_promotional_item)
+        update_product_inventory_layout.addWidget(self.update_product_inventory)
         # main_layout.addWidget(self.confirm_button)
 
         # 设置主窗口中央的 Widget
@@ -187,7 +219,7 @@ class MainWindow(QMainWindow):
         central_widget.setLayout(main_layout)
         self.setCentralWidget(central_widget)
 
-    def setup_task_layout(self, group_box, task_name, result_label, start_button, stop_button, delay_label, info_confirm_button):
+    def setup_task_layout(self, group_box, task_name, result_label, start_button, stop_button, delay_label, info_confirm_button, *args):
         # 设置任务布局
         task_layout = QVBoxLayout()
 
@@ -196,11 +228,18 @@ class MainWindow(QMainWindow):
         result_label.setStyleSheet("QLabel { background-color : #E0E0E0; padding: 5px; }")
 
         # 添加任务元素到任务布局
-        task_layout.addWidget(start_button)
-        task_layout.addWidget(stop_button)
-        task_layout.addWidget(delay_label)
-        task_layout.addWidget(info_confirm_button)
-        task_layout.addWidget(result_label)
+        if delay_label:
+            task_layout.addWidget(delay_label)
+        if info_confirm_button:
+            task_layout.addWidget(info_confirm_button)
+        if start_button:
+            task_layout.addWidget(start_button)
+        if stop_button:
+            task_layout.addWidget(stop_button)
+        if result_label:
+            task_layout.addWidget(result_label)
+        for arg in args:
+            task_layout.addWidget(arg)
 
         # 设置任务GroupBox的布局
         group_box.setLayout(task_layout)
@@ -208,6 +247,21 @@ class MainWindow(QMainWindow):
     # 确认点击成功槽函数
     def show_success_message(self):
         QMessageBox.information(self, "成功", "点击成功！")
+
+    # 添加一个新的函数来处理按钮点击事件
+    def select_excel_file(self):
+        file_name, _ = QFileDialog.getOpenFileName(self, "选择Excel文件", "", "Excel Files (*.xls *.xlsx)")
+        if file_name:
+            self.file_name = file_name
+            print(f"选择的Excel文件是：{file_name}")
+
+    # 初始化浏览器信息
+    def spider_shop(self):
+        SpiderShop.init_driver()
+
+    # 验证ozon网站
+    def verify_ozon(self):
+        SpiderShop.verify_ozon()
 
     def init(self):
         self.collect_money_thread.stop()
@@ -262,7 +316,7 @@ class MainWindow(QMainWindow):
 
         self.update_product_inventory_thread = None
         if not self.update_product_inventory_thread:
-            self.update_product_inventory_thread = WorkerThread(update_product_inventory, client_id, api_key, update_product_inventory_delay)
+            self.update_product_inventory_thread = WorkerThread(update_product_inventory, client_id, api_key, update_product_inventory_delay, self.file_name)
 
     def start_collect_money(self):
         self.start_task(self.collect_money_thread, self.collect_money_result_label)
@@ -302,9 +356,11 @@ class MainWindow(QMainWindow):
             thread.start()
 
     def stop_task(self, thread):
-        # 停止任务线程
-        thread.stop()
-        thread.wait()
+        if thread.isRunning():
+            thread.running = False
+            # 停止任务线程
+            # thread.stop()
+            # thread.wait()
 
 def collect_money(*args, **kwarg):
     # 实现催收功能的函数，使用传递的参数
@@ -376,7 +432,8 @@ def update_product_inventory(*args, **kwarg):
         "Api-Key": args[1]
     }
     delay = args[2]
-    res = updateProductInventory(headers, delay)
+    excel = args[3]
+    res = updateProductInventory(headers, delay, excel)
     print("执行更新商品库存操作")
     if res:
         return f"运行成功，可以点击停止暂停，暂停后点击开始继续，如果想要修改配置，请先点击停止，修改相应参数后点击确认在点击开始"

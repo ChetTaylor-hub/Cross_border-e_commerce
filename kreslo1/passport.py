@@ -1,8 +1,10 @@
-import time
+import time, os
 from loguru import logger
 from ozon_Api import OzonApi
 
-logger.add("passport.log", filter=lambda record: record["extra"].get("name") == "passport")
+if not os.path.exists("log"):
+    os.makedirs("log")
+logger.add("log/passport.log", filter=lambda record: record["extra"].get("name") == "passport")
 logger_passport = logger.bind(name="passport")
 
 

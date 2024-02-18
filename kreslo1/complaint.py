@@ -1,5 +1,6 @@
 import re
 import time
+import os
 
 from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
@@ -11,7 +12,9 @@ from spider import SpiderShop
 
 from ozon_Api import OzonApi
 
-logger.add("complaint.log", filter=lambda record: record["extra"].get("name") == "complaint")
+if not os.path.exists("log"):
+    os.makedirs("log")
+logger.add("log/complaint.log", filter=lambda record: record["extra"].get("name") == "complaint")
 logger_complaint = logger.bind(name="complaint")
 
 

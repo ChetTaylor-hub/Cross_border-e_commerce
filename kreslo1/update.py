@@ -1,9 +1,12 @@
 from ozon_Api import OzonApi
 import pandas as pd
 import time
+import os
 from loguru import logger
 
-logger.add("update.log", filter=lambda record: record["extra"].get("name") == "update")
+if not os.path.exists("log"):
+    os.makedirs("log")
+logger.add("log/update.log", filter=lambda record: record["extra"].get("name") == "update")
 logger_update = logger.bind(name="update")
 
 def updateProductInventory(headers, delay, excel="stock-update-template.xlsx"):

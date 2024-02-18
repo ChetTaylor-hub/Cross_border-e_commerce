@@ -9,8 +9,11 @@ Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查�
 from ozon_Api import OzonApi
 from loguru import logger
 import time
+import os
 
-logger.add("pickup.log", filter=lambda record: record["extra"].get("name") == "pickup")
+if not os.path.exists("log"):
+    os.makedirs("log")
+logger.add("log/pickup.log", filter=lambda record: record["extra"].get("name") == "pickup")
 logger_pickup = logger.bind(name="pickup")
 
 def urgePickUp(headers, delay):

@@ -239,6 +239,12 @@ class SpiderShop:
         match_result = ac.find_template(imsrc, imobj, confidence)
         print(imgsrc, imgobj, match_result)
         return match_result
+    
+    @classmethod
+    def verify_ozon(cls):
+        cls.init_driver()
+        url = "https://www.ozon.ru/product/1356525140/"
+        cls.driver.get(url)
 
     @classmethod
     def get_shop_info(cls, url):
@@ -310,9 +316,9 @@ class SpiderShop:
                 break
         return cls.shop_name
 
-
 if __name__ == '__main__':
     # url = "https://seller.ozon.ru/app/messenger?group=customers_v2&locale=zh-Hans"
-    # url = 'https://www.ozon.ru/product/kreslo-kachalka-ja012-90h90h68-sm-1323412451/'
+    url = 'https://www.ozon.ru/product/kreslo-kachalka-ja012-90h90h68-sm-1323412451/'
     # SpiderShop.get_shop_info(url)
-    SpiderShop.init_driver()
+    # SpiderShop.init_driver()
+    SpiderShop.verify_ozon()
