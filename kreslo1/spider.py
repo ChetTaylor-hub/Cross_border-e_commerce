@@ -166,10 +166,10 @@ class SpiderShop:
     @classmethod
     def verify(cls):
         src_image = os.path.join(cur_dir, f"verfy_picture/1.png")
-        obj_image = os.path.join(cur_dir, f"verfy_picture/mmexport1705739170944.jpg")
+        obj_image = os.path.join(cur_dir, f"verfy_picture/template.jpg")
 
         verify_cnt = 0
-        for _ in range(30):
+        for _ in range(50):
             try:
                 screenshot = ImageGrab.grab()
                 screenshot.save(src_image)
@@ -178,12 +178,10 @@ class SpiderShop:
 
                 result = cls.matchimg(src_image, obj_image)
                 print(result.get("result"))
-                if result:
+                if result and verify_cnt <= 1:
                     logger_complaint.info(f"开始点击验证")
                     pyautogui.click(*result.get("result"))
                     verify_cnt += 1
-                    if verify_cnt >= 2:
-                        return True
                 else:
                     return True
             except Exception as e:
@@ -245,6 +243,11 @@ class SpiderShop:
         cls.init_driver()
         url = "https://www.ozon.ru/product/1356525140/"
         cls.driver.get(url)
+
+    @classmethod
+    def login_ozon(cls):
+        cls.init_driver()
+        cls.driver.get("https://seller.ozon.ru/ch/")
 
     @classmethod
     def get_shop_info(cls, url):
@@ -321,4 +324,5 @@ if __name__ == '__main__':
     url = 'https://www.ozon.ru/product/kreslo-kachalka-ja012-90h90h68-sm-1323412451/'
     # SpiderShop.get_shop_info(url)
     # SpiderShop.init_driver()
-    SpiderShop.verify_ozon()
+    # SpiderShop.verify_ozon()
+    SpiderShop.login_ozon()
