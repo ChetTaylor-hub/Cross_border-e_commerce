@@ -1,6 +1,7 @@
 import sys
 import time
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QPushButton, QLineEdit, QHBoxLayout, QGroupBox, QMessageBox, QFileDialog, QTabWidget
+import datetime
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QPushButton, QLineEdit, QTextEdit, QHBoxLayout, QGroupBox, QMessageBox, QFileDialog, QTabWidget
 from PyQt5.QtCore import QThread, pyqtSignal, Qt 
 
 from passport import register_passport
@@ -10,6 +11,8 @@ from promotional import deleteAPromotionalItem
 from update import updateProductInventory
 
 from spider import SpiderShop
+from subscriptionService import MysqlOperation
+from subscriptionService import SubscriptionService
 
 class WorkerThread(QThread):
     task_completed = pyqtSignal(str)
@@ -519,6 +522,98 @@ class MainWindow(QMainWindow):
             # thread.stop()
             # thread.wait()
 
+# 创建一个页面，用于输入订阅者信息
+class SubscriptionPage(QMainWindow):
+    def __init__(self):
+        super(SubscriptionPage, self).__init__()
+        self.mysql_operation = MysqlOperation(table_name='test2')
+
+        # 设置主窗口标题
+        self.setWindowTitle("订阅服务")
+
+        # 设置主窗口大小
+        self.resize(400, 200)
+
+        # 创建订阅者信息输入框
+        self.subscriber_id_input = QLineEdit()
+        self.subscriber_id_input.setPlaceholderText("请输入订阅者ID")
+
+        # 创建按钮
+        self.check_subscribers_button = QPushButton("查询订阅")
+        self.unsubscribe_button = QPushButton("退订")
+        self.calculate_billing_button = QPushButton("查询剩余使用天数")
+
+        # 显示结果信息
+        self.result_label = QLabel("结果将显示在这里")
+        self.result_txt = QTextEdit()
+
+        # 设置布局
+        self.setup_layout()
+
+        # 连接按钮与指定的函数
+        self.check_subscribers_button.clicked.connect(self.check_subscribers)
+        self.unsubscribe_button.clicked.connect(self.unsubscribe)
+        self.calculate_billing_button.clicked.connect(self.calculate_billing)
+
+    def setup_layout(self):
+        # 设置主布局
+        main_layout = QVBoxLayout()
+
+        # 创建一个GroupBox
+        group_box = QGroupBox("订阅服务")
+
+        # 设置GroupBox的布局
+        group_layout = QVBoxLayout()
+        group_layout.addWidget(self.subscriber_id_input)
+        group_layout.addWidget(self.check_subscribers_button)
+        group_layout.addWidget(self.unsubscribe_button)
+        group_layout.addWidget(self.calculate_billing_button)
+        group_layout.addWidget(self.result_label)
+        group_layout.addWidget(self.result_txt)
+        group_box.setLayout(group_layout)
+
+        # 添加GroupBox到主布局
+        main_layout.addWidget(group_box)
+
+        # 设置主窗口中央的 Widget
+        central_widget = QWidget()
+        central_widget.setLayout(main_layout)
+        self.setCentralWidget(central_widget)
+
+    # 退订按钮点击事件
+    def unsubscribe(self):
+        subscriber_id = self.subscriber_id_input.text()
+        if not self.mysql_operation.is_exist(subscriber_id):
+            self.result_txt.setText(f"订阅ID：{subscriber_id} 不存在，请重新输入")
+            return
+        self.mysql_operation.delete(subscriber_id)
+
+    # 计费按钮点击事件
+    def calculate_billing(self):
+        subscriber_id = self.subscriber_id_input.text()
+        if not self.mysql_operation.is_exist(subscriber_id):
+            self.result_txt.setText(f"订阅ID：{subscriber_id} 不存在，请重新输入")
+            return
+        data = self.mysql_operation.query(subscriber_id)
+        subscription_date = data[subscriber_id]['subscription_date']
+        current_date = current_date = datetime.date.today()
+        self.result_txt.setText(f"订阅ID：{subscriber_id}，剩余使用天数：{(int(subscription_date.split('-')[0]) - current_date.year) * 12 * 30 + (int(subscription_date.split('-')[1]) - current_date.month) * 30 + (int(subscription_date.split('-')[2]) - current_date.day)}天")
+
+
+
+    # 检查订阅者的状态
+    def check_subscribers(self):
+        subscriber_id = self.subscriber_id_input.text()
+        if not self.mysql_operation.is_exist(subscriber_id):
+            self.result_txt.setText(f"订阅ID：{subscriber_id} 不存在，请重新输入")
+        # 如果返回 True，表示订阅者状态正常，切换到MainWindow界面
+        else:
+            self.close()
+            self.main_window = MainWindow()
+            self.main_window.show()
+
+
+
 def collect_money(*args, **kwarg):
     # 实现催收功能的函数，使用传递的参数
     res  = False
@@ -599,6 +694,6 @@ def update_product_inventory(*args, **kwarg):
 if __name__ == '__main__':
 
     app = QApplication(sys.argv)
-    window = MainWindow()
+    window = SubscriptionPage()
     window.show()
     sys.exit(app.exec_())
