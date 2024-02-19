@@ -19,8 +19,13 @@ class OzonApi():
         """ 
         # 代码获取当前时间，保持 "2023-11-03T11:47:39.878Z" 时间格式一致
         now = datetime.datetime.now()
+        interval = 3
         to = f"{now.year:04}-{now.month:02}-{now.day:02}T{now.hour:02}:{now.minute:02}:{now.second:02}.878Z"
-        since = f"{now.year:04}-{now.month-1:02}-{now.day:02}T{now.hour:02}:{now.minute:02}:{now.second:02}.878Z"
+        # 三个月前，如果当前月份小于3，则年份减一
+        if now.month - interval <= 0:
+            since = f"{now.year-1:04}-{now.month+12-interval:02}-{now.day:02}T{now.hour:02}:{now.minute:02}:{now.second:02}.878Z"
+        else:
+            since = f"{now.year:04}-{now.month-interval:02}-{now.day:02}T{now.hour:02}:{now.minute:02}:{now.second:02}.878Z"
 
 
         map = {
@@ -47,7 +52,7 @@ class OzonApi():
                 # "string"
                 # ]
             },
-            "limit": 100,
+            "limit": 1000,
             "offset": 0,
             "with": {
                 "analytics_data": True,
@@ -61,7 +66,6 @@ class OzonApi():
         url = map["url"]
         application = map["application"]
 
-        # TODO 请求没有任何反应
         response = requests.post(url, headers=self.headers, json=application)
 
         # print(response.json())
@@ -91,24 +95,20 @@ class OzonApi():
         return postings
         
 
-    def ChatBuyersStart(self, response, ChatContent):
+    def ChatBuyersStart(self, posting):
         # 创建聊天窗口
         chat_ids = []
-        
-        posting_numbers = [posting["posting_number"] for posting in self.SelectFromShipmentList(response, ChatContent["substatus"])]
 
         url = "https://api-seller.ozon.ru/v1/chat/start"
 
-        # 逐个创建聊天窗口，返回聊天窗口id号
-        for posting_number in posting_numbers:
-            application = {
-                "posting_number": posting_number
-            }
+        application = {
+            "posting_number": posting["posting_number"]
+        }
 
-            response = requests.post(url, headers=self.headers, json=application)
+        response = requests.post(url, headers=self.headers, json=application)
 
-            chat_ids.append(response.json()["result"]["chat_id"])
-            # print(response.json())
+        chat_ids.append(response.json()["result"]["chat_id"])
+        # print(response.json())
 
         return chat_ids
 
